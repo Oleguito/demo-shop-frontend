@@ -1,17 +1,12 @@
 "use client"
 
-import React from "react";
+import React, {useContext} from "react";
+import { GlobalContext } from "../context/GlobalContext";
 
-// interface Props {
-//     visible: boolean;
-//     setVisibleTo: (visibleFlag: boolean) => void;
-// }
-
-const LoginOverlay = () => {
-    const [visible, setVisibleTo] = React.useState(true);
-    console.log(visible);
+const LoginOverlay: React.FC = () => {
+    const context = React.useContext(GlobalContext);
     
-    return (visible &&
+    return (context.loginOverlayVisible &&
         <div className="overlay">
             <div className="overlay-content">
                 <form>
@@ -22,7 +17,7 @@ const LoginOverlay = () => {
                     <input type="password" id="password" placeholder="Enter your password here" />
                     <br />
                     <button type="submit" className="submitButton" onClick={
-                        () => {setVisibleTo(false);}
+                        () => {context.loginOverlayVisible = false}
                     }>Submit</button>
                 </form>
             </div>
