@@ -1,9 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
-type GlobalContextType = {
+interface GlobalContextData {
     loginOverlayVisible: boolean;
+}
+
+const defaultValue = {
+    loginOverlayVisible: true,
 };
 
-export const GlobalContext = createContext<GlobalContextType>({
-    loginOverlayVisible: false,
-});
+export const GlobalContext = createContext<GlobalContextData>(defaultValue);

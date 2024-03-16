@@ -4,8 +4,9 @@ import React, {useContext} from "react";
 import { GlobalContext } from "../context/GlobalContext";
 
 const LoginOverlay: React.FC = () => {
-    const context = React.useContext(GlobalContext);
-    
+    const cont = React.useContext(GlobalContext);
+    const [context, setContext] = React.useState(cont);
+
     return (context.loginOverlayVisible &&
         <div className="overlay">
             <div className="overlay-content">
@@ -17,7 +18,7 @@ const LoginOverlay: React.FC = () => {
                     <input type="password" id="password" placeholder="Enter your password here" />
                     <br />
                     <button type="submit" className="submitButton" onClick={
-                        () => {context.loginOverlayVisible = false}
+                        () => {setContext({ loginOverlayVisible: false });}
                     }>Submit</button>
                 </form>
             </div>

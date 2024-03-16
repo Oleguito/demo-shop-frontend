@@ -1,17 +1,20 @@
-"use client"
+"use client";
 
-import { validateHeaderValue } from "http";
+import React, { useContext, useState } from "react";
 import LoginOverlay from "./components/LoginOverlay";
 import PageCarcass from "./components/PageCarcass";
-import {GlobalContext } from "./context/GlobalContext";
+import { GlobalContext } from "./context/GlobalContext";
 
 export default function Home() {
-  return (
-      <main>
-          <GlobalContext.Provider value={{loginOverlayVisible: true}}>
-              <PageCarcass />
-              <LoginOverlay />
-          </GlobalContext.Provider>
-      </main>
-  );
+    const cont = useContext(GlobalContext);
+    const [context, setContext] = useState(cont);
+
+    return (
+        <main>
+            <GlobalContext.Provider value={context}>
+                <PageCarcass />
+                <LoginOverlay />
+            </GlobalContext.Provider>
+        </main>
+    );
 }
