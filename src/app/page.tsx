@@ -11,7 +11,7 @@ export default function Home() {
 
     return (
         <main>
-            <GlobalContext.Provider value={context}>
+            <GlobalContext.Provider value={{context, setContext}}>
                 <PageCarcass />
                 <LoginOverlay />
             </GlobalContext.Provider>
