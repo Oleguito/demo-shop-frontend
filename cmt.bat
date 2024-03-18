@@ -1,2 +1,2 @@
 git add .
-git commit -m "white it works..."
+git commit -m "while it works..."
