@@ -22,14 +22,14 @@ type AuthorizationResultInfo = {
 
 const GET_ALL_USERS_URL = `${routes.serverUrl}/users`;
 
-export const authorizeUser = async (credentials: AuthorizeCredentials) => {
+export const authorizeUser = async (credentials: AuthorizeCredentials, rememberMe: boolean) => {
     console.log(`creds:${credentials.login} ${credentials.password}`);
 
     await getAllUsers().then((data) => {
         console.log(data);
         const foundUser = data.find((u) => u.login === credentials.login);
         console.log(foundUser);
-        if(foundUser) {
+        if(foundUser && rememberMe) {
             localStorage.setItem("currentUser", JSON.stringify(foundUser))
         }
     });
