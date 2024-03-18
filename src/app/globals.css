@@ -6,9 +6,9 @@ body {
     background-color: #aaa;
 }
 
-/* * {
+* {
 border: 1px dotted red;
-} */
+}
 
 .searchBar {
     margin-top: 1rem;
@@ -123,4 +123,10 @@ section > h1 {
 
 .loginFormNotRegisteredMessage p .link {
     color:#007bff;
+}
+
+.authorizationFormContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
