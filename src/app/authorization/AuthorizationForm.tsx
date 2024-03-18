@@ -76,7 +76,7 @@ export function AuthorizationPage() {
                                 />
                             </FormControl>
                             <FormDescription>
-                                This is your password.
+                                This is your password. Don't share it with anyone.
                             </FormDescription>
                             <FormMessage />
                         </FormItem>
