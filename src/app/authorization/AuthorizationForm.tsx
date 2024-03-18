@@ -65,7 +65,7 @@ export function AuthorizationPage() {
                 />
                 <FormField
                     control={form.control}
-                    name="pasword"
+                    name="password"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Password</FormLabel>
