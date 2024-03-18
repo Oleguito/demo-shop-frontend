@@ -21,7 +21,7 @@ import {
     RegisterCredentials,
     RegisterResponse,
     registerUser,
-} from "@/api/Authorization";
+} from "@/api/Register";
 
 const formSchema = z.object({
     username: z.string().min(2).max(50),

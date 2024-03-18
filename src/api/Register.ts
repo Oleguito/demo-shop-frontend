@@ -4,7 +4,7 @@ import * as routes from "@/app/routes/routes";
 export type RegisterCredentials = {
     login: string;
     password: string;
-    email: string;
+    email: string; 
 };
 export type RegisterResponse = {
     id: number;

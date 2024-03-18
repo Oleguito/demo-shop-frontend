@@ -13,9 +13,7 @@ const LoginOverlay: React.FC = () => {
     const [login, setLogin] = React.useState("");
     const [password, setPassword] = React.useState("");
 
-    useEffect(() => {
-        console.log("Oleg " + context.loginOverlayVisible);
-    }, [context.loginOverlayVisible]);
+    useEffect(() => {}, [context.loginOverlayVisible]);
 
     return (
         context.loginOverlayVisible && (
@@ -58,7 +56,10 @@ const LoginOverlay: React.FC = () => {
                         </button>
                         <div className="loginFormNotRegisteredMessage">
                             <p>
-                                Not a user yet? <Link className="link" href="/authorization">Register</Link>
+                                Not a user yet?{" "}
+                                <Link className="link" href="/authorization">
+                                    Register
+                                </Link>
                             </p>
                         </div>
                     </form>
