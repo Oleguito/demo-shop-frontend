@@ -54,7 +54,7 @@ export function AuthorizationPage() {
                         <FormItem>
                             <FormLabel>Username</FormLabel>
                             <FormControl>
-                                <Input placeholder="Oleguito" {...field} />
+                                <Input placeholder="e.g. 'Oleguito'" {...field} />
                             </FormControl>
                             <FormDescription>
                                 This is your public display name.
