@@ -4,8 +4,8 @@ import { GlobalContext } from "../context/GlobalContext";
 interface Props {}
 
 const PageCarcass: React.FC = (props: Props) => {
-    const {context, setContext} = useContext(GlobalContext);
-    // const [context, setContext] = React.useState(cont);
+    //@ts-ignore
+    const { context, setContext } = useContext(GlobalContext);
 
     return (
         <>
@@ -26,10 +26,31 @@ const PageCarcass: React.FC = (props: Props) => {
                 ></button>
             </header>
             <section className="h-[100vh] mx-[15%]">
-                MainArea <br />
-                <br />
-                <br />
-                {/* {"cont: " + cont.loginOverlayVisible} */}
+                <h1>Products by categories</h1>
+                <h2>Category 1</h2>
+                <div className="productInCategoryContainer">
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                </div>
+                <h2>Category 2</h2>
+                <div className="productInCategoryContainer">
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                </div>
+                <h2>Category 3</h2>
+                <div className="productInCategoryContainer">
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                    <div className="productInCategory"></div>
+                </div>
                 <br />
                 {"context: " + context.loginOverlayVisible}
             </section>

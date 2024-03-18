@@ -5,7 +5,7 @@ interface GlobalContextData {
 }
 
 const defaultValue = {
-    loginOverlayVisible: false,
+    loginOverlayVisible: true,
 };
 
 export const GlobalContext = createContext<GlobalContextData>(defaultValue);
