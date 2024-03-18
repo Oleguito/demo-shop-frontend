@@ -4,21 +4,43 @@ import * as routes from "@/app/routes/routes";
 export type AuthorizeCredentials = {
     login: string;
     password: string;
-    email: string; 
 };
-export type AuthorizeResponse = {
+
+type OneUser = {
     id: number;
     login: string;
     password: string;
     email: string;
 };
+export type AuthorizeResponse = {
+    users: OneUser[];
+};
+type AuthorizationResultInfo = {
+    status: number;
+    userId: number;
+};
 
-const AUTHORIZE_USER_URL = `${routes.serverUrl}/users/add`;
+const GET_ALL_USERS_URL = `${routes.serverUrl}/users`;
 
-export const AuthorizeUser = async (credentials: AuthorizeCredentials) => {
+export const authorizeUser = async (credentials: AuthorizeCredentials) => {
+    console.log(`creds:${credentials.login} ${credentials.password}`);
+
+    await getAllUsers().then((data) => {
+        console.log(data);
+        const foundUser = data.find((u) => u.login === credentials.login);
+        console.log(foundUser);
+        if(foundUser) {
+            localStorage.setItem("currentUser", JSON.stringify(foundUser))
+        }
+    });
+
+
+};
+
+const getAllUsers = async () => {
     return await axios
-        .post(AUTHORIZE_USER_URL, credentials)
-        .then((response: AxiosResponse<AuthorizeResponse>) => {
+        .get(GET_ALL_USERS_URL)
+        .then((response: AxiosResponse<OneUser[]>) => {
             return response.data;
         });
 };

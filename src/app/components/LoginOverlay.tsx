@@ -5,6 +5,7 @@ import { GlobalContext } from "../context/GlobalContext";
 import axios from "axios";
 import { routes } from "../routes/routes";
 import Link from "next/link";
+import { authorizeUser } from "@/api/Authorize";
 
 const LoginOverlay: React.FC = () => {
     //@ts-ignore
@@ -41,14 +42,10 @@ const LoginOverlay: React.FC = () => {
                             className="submitButton"
                             onClick={() => {
                                 console.log(login, password);
-                                axios.post(
-                                    routes.addUser,
-                                    JSON.stringify({
-                                        login: login,
-                                        password: password,
-                                        email: null,
-                                    })
-                                );
+                                authorizeUser({
+                                    login: login,
+                                    password: password,
+                                });
                                 setContext({ loginOverlayVisible: false });
                             }}
                         >
