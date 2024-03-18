@@ -17,6 +17,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
+import {
+    RegisterCredentials,
+    RegisterResponse,
+    registerUser,
+} from "@/api/Authorization";
+
 const formSchema = z.object({
     username: z.string().min(2).max(50),
     password: z.string().min(8).max(50),
@@ -38,7 +44,14 @@ export function AuthorizationPage() {
     function onSubmit(values: z.infer<typeof formSchema>) {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
+
         console.log(values);
+
+        registerUser({
+            login: values.username,
+            password: values.password,
+            email: values.email,
+        });
     }
 
     return (
@@ -54,7 +67,10 @@ export function AuthorizationPage() {
                         <FormItem>
                             <FormLabel>Username</FormLabel>
                             <FormControl>
-                                <Input placeholder="e.g. 'Oleguito'" {...field} />
+                                <Input
+                                    placeholder="e.g. 'Oleguito'"
+                                    {...field}
+                                />
                             </FormControl>
                             <FormDescription>
                                 This is your public display name.
@@ -76,7 +92,8 @@ export function AuthorizationPage() {
                                 />
                             </FormControl>
                             <FormDescription>
-                                This is your password. Don't share it with anyone.
+                                This is your password. Don't share it with
+                                anyone.
                             </FormDescription>
                             <FormMessage />
                         </FormItem>
