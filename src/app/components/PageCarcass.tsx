@@ -52,7 +52,6 @@ const PageCarcass: React.FC = (props: Props) => {
                     <div className="productInCategory"></div>
                 </div>
                 <br />
-                {"context: " + context.loginOverlayVisible}
             </section>
         </>
     );

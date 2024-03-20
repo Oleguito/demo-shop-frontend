@@ -3,18 +3,15 @@
 import React, { useContext, useState } from "react";
 import LoginOverlay from "./components/LoginOverlay";
 import PageCarcass from "./components/PageCarcass";
-import { GlobalContext } from "./context/GlobalContext";
+import { GlobalContextProvider } from "./context/GlobalContext";
 
 export default function Home() {
-    const cont = useContext(GlobalContext);
-    const [context, setContext] = useState(cont);
-
     return (
         <main>
-            <GlobalContext.Provider value={{ context, setContext }}>
+            <GlobalContextProvider>
                 <PageCarcass />
                 <LoginOverlay />
-            </GlobalContext.Provider>
+            </GlobalContextProvider>
         </main>
     );
 }

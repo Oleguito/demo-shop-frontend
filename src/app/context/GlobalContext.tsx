@@ -2,6 +2,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 interface GlobalContextData {
     loginOverlayVisible: boolean;
+    setLoginOverlayVisible: (setLoginOverlayVisible: boolean) => void;
 }
 
 let loggedInUserIDd;
@@ -17,6 +18,20 @@ if (loggedInUserIDd) {
 
 const defaultValue = {
     loginOverlayVisible: showOrNot,
+    setLoginOverlayVisible: (setLoginOverlayVisible: boolean) => {},
 };
 
+interface GlobalContextProviderProps {
+    children: ReactNode;
+}
+
 export const GlobalContext = createContext<GlobalContextData>(defaultValue);
+
+export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => {
+    const [loginOverlayVisible, setLoginOverlayVisible] = useState(showOrNot);
+    return (
+        <GlobalContext.Provider value={{loginOverlayVisible, setLoginOverlayVisible}}>
+            {children}
+        </GlobalContext.Provider>
+    );
+}

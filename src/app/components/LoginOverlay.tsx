@@ -9,17 +9,15 @@ import Link from "next/link";
 import { authorizeUser } from "@/api/Authorize";
 
 const LoginOverlay: React.FC = () => {
-    //@ts-ignore
-    const { context, setContext } = useContext(GlobalContext);
+
+    const { loginOverlayVisible, setLoginOverlayVisible } = useContext(GlobalContext);
 
     const [login, setLogin] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [rememberMe, setRememberMe] = React.useState(false);
 
-    useEffect(() => {}, [context.loginOverlayVisible]);
-
     return (
-        context.loginOverlayVisible && (
+        loginOverlayVisible && (
             <div className="overlay">
                 <div className="overlay-content">
                     <form>
@@ -66,7 +64,7 @@ const LoginOverlay: React.FC = () => {
                                     },
                                     rememberMe
                                 );
-                                setContext({ loginOverlayVisible: false });
+                                setLoginOverlayVisible(false);
                             }}
                         >
                             Submit
