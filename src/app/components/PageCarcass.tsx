@@ -4,8 +4,8 @@ import { GlobalContext } from "../context/GlobalContext";
 interface Props {}
 
 const PageCarcass: React.FC = (props: Props) => {
-    //@ts-ignore
-    const { context, setContext } = useContext(GlobalContext);
+    const { loginOverlayVisible, setLoginOverlayVisible } =
+        useContext(GlobalContext);
 
     return (
         <>
@@ -20,8 +20,7 @@ const PageCarcass: React.FC = (props: Props) => {
                     type="submit"
                     className="loginImage"
                     onClick={() => {
-                        console.log(context.loginOverlayVisible);
-                        setContext({ loginOverlayVisible: true });
+                        setLoginOverlayVisible(true);
                     }}
                 ></button>
             </header>

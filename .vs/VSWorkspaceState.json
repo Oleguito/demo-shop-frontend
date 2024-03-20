@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\auth-result",
+    "\\src\\app\\authorization",
+    "\\src\\app\\components",
+    "\\src\\app\\context",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\loggedIn",
+    "\\src\\app\\routes"
+  ],
+  "SelectedNode": "\\src\\app\\components\\PageCarcass.tsx",
+  "PreviewInSolutionExplorer": false
+}
