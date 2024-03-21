@@ -19,6 +19,9 @@ function Header() {
 }
 
 const PageCarcass = () => {
+
+    const {loggedInUserData} = useContext(GlobalContext);
+
     const currentUserId = Cookies.get("currentUserId");
     const userIsLoggedIn = currentUserId !== undefined;
     return (
@@ -27,6 +30,8 @@ const PageCarcass = () => {
             User Id: {currentUserId ? currentUserId : "N/A"}
             <br/>
             User is logged in: {userIsLoggedIn ? "yes" : "no"}
+            <br/>
+            User data: {loggedInUserData.email}
             <MainLayout />
         </>
     );

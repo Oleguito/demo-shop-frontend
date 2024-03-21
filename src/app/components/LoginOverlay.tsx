@@ -11,6 +11,7 @@ import { authorizeUser } from "@/api/Authorize";
 const LoginOverlay: React.FC = () => {
 
     const { loginOverlayVisible, setLoginOverlayVisible } = useContext(GlobalContext);
+    const { setLoggedInUserData } = useContext(GlobalContext);
 
     const [login, setLogin] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -55,16 +56,20 @@ const LoginOverlay: React.FC = () => {
                         <button
                             type="submit"
                             className="submitButton"
-                            onClick={async () => {
-                                console.log(login, password);
-                                const authorizedUser = await authorizeUser(
+                            onClick={() => {
+                                const authorizedUserPromise = authorizeUser(
                                     {
                                         login: login,
                                         password: password,
                                     },
                                     rememberMe
-                                ).then(r => r);
-                                setLoginOverlayVisible(false);
+                                ).then(authorizedUser => {
+                                    authorizedUser && setLoggedInUserData(authorizedUser);
+                                    setLoginOverlayVisible(false);
+                                });
+                                // if(authorizedUser)
+
+                                // setLoggedInUserData({id: 123123,login:"sdf",password:"sadfsdf",email:"sdfsdf"});
                             }}
                         >
                             Submit

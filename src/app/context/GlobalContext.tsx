@@ -20,8 +20,8 @@ interface GlobalContextProviderProps {
     children: ReactNode;
 }
 
-
-const defaultValue: GlobalContextData = {
+export const GlobalContext
+        = createContext<GlobalContextData>({
     loginOverlayVisible: false,
     setLoginOverlayVisible: (value: boolean) => {},
     // @ts-ignore
@@ -29,10 +29,7 @@ const defaultValue: GlobalContextData = {
     setUserIsLoggedIn: () => {},
     loggedInUserData: {} as UserQuery,
     setLoggedInUserData: () => {},
-};
-
-export const GlobalContext
-        = createContext<GlobalContextData>(defaultValue);
+});
 
 export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => {
     const [ loginOverlayVisible,
