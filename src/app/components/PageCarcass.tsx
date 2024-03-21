@@ -21,15 +21,16 @@ function Header() {
 const PageCarcass = () => {
 
     const {loggedInUserData} = useContext(GlobalContext);
+    const {userIsLoggedIn} = useContext(GlobalContext);
 
     const currentUserId = Cookies.get("currentUserId");
-    const userIsLoggedIn = currentUserId !== undefined;
+    const userIsLoggedInCookies = currentUserId !== undefined;
     return (
         <>
             <Header />
-            User Id: {currentUserId ? currentUserId : "N/A"}
+            User Id from Cookies: {currentUserId ? currentUserId : "N/A"}
             <br/>
-            User is logged in: {userIsLoggedIn ? "yes" : "no"}
+            User is logged in (context): {userIsLoggedIn ? "yes" : "no"}
             <br/>
             User data: {JSON.stringify(loggedInUserData)}
             <MainLayout />

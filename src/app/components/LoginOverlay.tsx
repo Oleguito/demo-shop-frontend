@@ -12,6 +12,7 @@ const LoginOverlay: React.FC = () => {
 
     const { loginOverlayVisible, setLoginOverlayVisible } = useContext(GlobalContext);
     const { setLoggedInUserData } = useContext(GlobalContext);
+    const {setUserIsLoggedIn } = useContext(GlobalContext);
 
     const [login, setLogin] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -66,7 +67,8 @@ const LoginOverlay: React.FC = () => {
                                     rememberMe
                                 ).then(authorizedUser => {
                                     authorizedUser && setLoggedInUserData(authorizedUser);
-                                    setLoginOverlayVisible(false);
+                                    authorizedUser && setUserIsLoggedIn(true);
+                                    authorizedUser && setLoginOverlayVisible(false);
                                 });
                             }}
                         >
