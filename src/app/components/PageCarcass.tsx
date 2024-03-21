@@ -31,7 +31,7 @@ const PageCarcass = () => {
             <br/>
             User is logged in: {userIsLoggedIn ? "yes" : "no"}
             <br/>
-            User data: {loggedInUserData.email}
+            User data: {JSON.stringify(loggedInUserData)}
             <MainLayout />
         </>
     );
