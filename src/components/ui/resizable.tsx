@@ -2,11 +2,12 @@ import { GripVertical } from "lucide-react"
 import * as ResizablePrimitive from "react-resizable-panels"
 
 import { concatTailwindClasses } from "@/lib/utils"
+import React, {ComponentProps} from "react";
 
 const ResizablePanelGroup = ({
   className,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) => (
+}: ComponentProps<typeof ResizablePrimitive.PanelGroup>) => (
   <ResizablePrimitive.PanelGroup
     className={concatTailwindClasses(
       "flex h-full w-full data-[panel-group-direction=vertical]:flex-col",
@@ -22,7 +23,7 @@ const ResizableHandle = ({
   withHandle,
   className,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
+}: ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
   withHandle?: boolean
 }) => (
   <ResizablePrimitive.PanelResizeHandle
