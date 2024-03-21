@@ -2,11 +2,14 @@ import React, {useContext} from "react";
 import {GlobalContext} from "@/app/context/GlobalContext";
 
 export function LoginButton() {
-    const {setLoginOverlayVisible} = useContext(GlobalContext);
+    const {loginOverlayVisible, setLoginOverlayVisible} = useContext(GlobalContext);
 
     return <button
         type="submit"
         className="loginImage"
-        onClick={() => setLoginOverlayVisible(true)}
+        onClick={() => {
+            console.log(loginOverlayVisible);
+            setLoginOverlayVisible(true);
+        }}
     ></button>;
 }

@@ -9,11 +9,11 @@ import Cookies from "js-cookie";
 
 interface GlobalContextData {
     loginOverlayVisible: boolean;
-    setLoginOverlayVisible: Dispatch<SetStateAction<boolean>>;
+    setLoginOverlayVisible: (value: boolean) => void;
     userIsLoggedIn: boolean;
     setUserIsLoggedIn: Dispatch<SetStateAction<boolean>>;
     loggedInUserData: UserQuery;
-    setLoggedInUserDate: Dispatch<SetStateAction<boolean>>;
+    setLoggedInUserData: Dispatch<SetStateAction<UserQuery>>;
 }
 
 interface GlobalContextProviderProps {
@@ -23,29 +23,37 @@ interface GlobalContextProviderProps {
 
 const defaultValue: GlobalContextData = {
     loginOverlayVisible: false,
-    setLoginOverlayVisible: () => {},
+    setLoginOverlayVisible: (value: boolean) => {},
     // @ts-ignore
     userIsLoggedIn: Cookies.get("currentUserId") !== undefined,
-    setUserIsLoggedIn: () => { },
+    setUserIsLoggedIn: () => {},
     loggedInUserData: {} as UserQuery,
-    setLoggedInUserDate: () => {},
+    setLoggedInUserData: () => {},
 };
+
 export const GlobalContext
         = createContext<GlobalContextData>(defaultValue);
 
 export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => {
     const [ loginOverlayVisible,
             setLoginOverlayVisible]
-        = useState(false);
+        = useState<boolean>(false);
     const [ userIsLoggedIn,
             setUserIsLoggedIn]
-        = useState(false);
+        = useState<boolean>(false);
     const [ loggedInUserData,
-            setLoggedInUserDate]
-        = useState({} as UserQuery);
+            setLoggedInUserData]
+        = useState<UserQuery>({} as UserQuery);
 
     return (
-        <GlobalContext.Provider value={defaultValue}>
+        <GlobalContext.Provider value={{
+            loginOverlayVisible,
+            setLoginOverlayVisible,
+            userIsLoggedIn,
+            setUserIsLoggedIn,
+            loggedInUserData,
+            setLoggedInUserData,
+        }}>
             {children}
         </GlobalContext.Provider>
     );
