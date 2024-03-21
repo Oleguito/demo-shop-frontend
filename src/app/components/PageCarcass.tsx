@@ -1,3 +1,5 @@
+"use client"
+
 import React, { ReactNode, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { LoginButton } from '@/app/components/LoginButton';
@@ -28,7 +30,7 @@ const PageCarcass = () => {
     return (
         <>
             <Header />
-            User Id from Cookies: {currentUserId ? currentUserId : "N/A"}
+            User Id from Cookies: <span>{currentUserId}</span>
             <br/>
             User is logged in (context): {userIsLoggedIn ? "yes" : "no"}
             <br/>
