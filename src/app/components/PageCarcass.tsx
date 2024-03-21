@@ -1,57 +1,33 @@
-import React, { useContext, useState } from "react";
-import { GlobalContext } from "../context/GlobalContext";
+import React, { ReactNode, useContext } from 'react';
+import { GlobalContext } from '../context/GlobalContext';
+import { LoginButton } from '@/app/components/LoginButton';
+import { SearchBar } from '@/app/components/SearchBar';
+import { Logo } from '@/app/components/Logo';
+import { MainLayout } from '@/app/components/MainLayout';
+import {Utils} from '@/lib/utils';
+import Cookies from "js-cookie";
 
-interface Props {}
 
-const PageCarcass: React.FC = (props: Props) => {
-    const { loginOverlayVisible, setLoginOverlayVisible } =
-        useContext(GlobalContext);
+function Header() {
+    return (
+        <header className="flex justify-between mx-[15%]">
+            <Logo />
+            <SearchBar />
+            <LoginButton />
+        </header>
+    );
+}
 
+const PageCarcass = () => {
+    const currentUserId = Cookies.get("currentUserId");
+    const userIsLoggedIn = currentUserId !== undefined;
     return (
         <>
-            <header className="flex justify-between mx-[15%]">
-                <div className="logo"></div>
-                <input
-                    type="text"
-                    className="searchBar"
-                    placeholder=" enter search criteria"
-                />
-                <button
-                    type="submit"
-                    className="loginImage"
-                    onClick={() => {
-                        setLoginOverlayVisible(true);
-                    }}
-                ></button>
-            </header>
-            <section className="h-[100vh] mx-[15%]">
-                <h1>Products by categories</h1>
-                <h2>Category 1</h2>
-                <div className="productInCategoryContainer">
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                </div>
-                <h2>Category 2</h2>
-                <div className="productInCategoryContainer">
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                </div>
-                <h2>Category 3</h2>
-                <div className="productInCategoryContainer">
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                    <div className="productInCategory"></div>
-                </div>
-                <br />
-            </section>
+            <Header />
+            User Id: {currentUserId ? currentUserId : "N/A"}
+            <br/>
+            User is logged in: {userIsLoggedIn ? "yes" : "no"}
+            <MainLayout />
         </>
     );
 };

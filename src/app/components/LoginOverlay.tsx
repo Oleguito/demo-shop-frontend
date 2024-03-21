@@ -55,15 +55,15 @@ const LoginOverlay: React.FC = () => {
                         <button
                             type="submit"
                             className="submitButton"
-                            onClick={() => {
+                            onClick={async () => {
                                 console.log(login, password);
-                                authorizeUser(
+                                const authorizedUser = await authorizeUser(
                                     {
                                         login: login,
                                         password: password,
                                     },
                                     rememberMe
-                                );
+                                ).then(r => r);
                                 setLoginOverlayVisible(false);
                             }}
                         >

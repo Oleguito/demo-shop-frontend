@@ -1,5 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import * as routes from "@/app/routes/routes";
+import Cookies from "js-cookie";
+import {GlobalContext} from "@/app/context/GlobalContext";
+import {useContext} from "react";
 
 export type AuthorizeCredentials = {
     login: string;
@@ -23,15 +26,13 @@ type AuthorizationResultInfo = {
 const GET_ALL_USERS_URL = `${routes.serverUrl}/users`;
 
 export const authorizeUser = async (credentials: AuthorizeCredentials, rememberMe: boolean) => {
-    console.log(`creds:${credentials.login} ${credentials.password}`);
 
-    await getAllUsers().then((data) => {
-        console.log(data);
+    return await getAllUsers().then((data) => {
         const foundUser = data.find((u) => u.login === credentials.login);
-        console.log(foundUser);
         if(foundUser && rememberMe) {
-            localStorage.setItem("currentUser", JSON.stringify(foundUser))
+            Cookies.set("currentUserId", ""+foundUser.id);
         }
+        return foundUser;
     });
 
 
