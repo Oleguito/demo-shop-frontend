@@ -56,7 +56,8 @@ const LoginOverlay: React.FC = () => {
                         <button
                             type="submit"
                             className="submitButton"
-                            onClick={() => {
+                            onClick={(e) => {
+                                e.preventDefault();
                                 const authorizedUserPromise = authorizeUser(
                                     {
                                         login: login,
@@ -67,9 +68,6 @@ const LoginOverlay: React.FC = () => {
                                     authorizedUser && setLoggedInUserData(authorizedUser);
                                     setLoginOverlayVisible(false);
                                 });
-                                // if(authorizedUser)
-
-                                // setLoggedInUserData({id: 123123,login:"sdf",password:"sadfsdf",email:"sdfsdf"});
                             }}
                         >
                             Submit
