@@ -33,12 +33,11 @@ border: 1px dotted red;
     background-size: cover;
 }
 .profileImage {
-    background-image: url("../../public/img/login.png");
-    background-color: #0056b3;
+    background-image: url("../../public/img/profileImage.png");
     background-position: center;
-    width: 3rem;
-    height: 3rem;
-    background-size: cover;
+    width: 4rem;
+    height: 4rem;
+    background-size: contain;
 }
 
 .loginOverlay {
