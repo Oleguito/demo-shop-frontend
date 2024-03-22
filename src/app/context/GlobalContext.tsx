@@ -60,9 +60,11 @@ export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => 
     useEffect(() => {
         setIsClient(true);
         setUserIsLoggedIn(typeof currentUserFromCookies == "string");
-        getUserById(8).then((user) => {
-            setLoggedInUserData(user);
-        })
+        if(currentUserFromCookies !== undefined) {
+            getUserById(parseInt(currentUserFromCookies)).then((user) => {
+                setLoggedInUserData(user);
+            })
+        }
     }, [currentUserFromCookies])
 
     return (
