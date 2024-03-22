@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -27,7 +29,7 @@ const formSchema = z.object({
     email: z.string().email().min(8).max(50),
 });
 
-export function AuthorizationPage() {
+export function RegistrationPage() {
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -120,4 +122,4 @@ export function AuthorizationPage() {
     );
 }
 
-export default AuthorizationPage;
+export default RegistrationPage;
