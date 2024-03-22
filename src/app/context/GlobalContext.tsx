@@ -61,11 +61,6 @@ export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => 
         setUserIsLoggedIn(typeof currentUserFromCookies == "string");
     }, [currentUserFromCookies])
 
-    // console.log("currentUserFromCookies: ", currentUserFromCookies);
-    // if (isClient) {
-    //     setUserIsLoggedIn(typeof currentUserFromCookies == "string");
-    // }
-
     return (
         <GlobalContext.Provider value={{
             loginOverlayVisible,
