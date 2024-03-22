@@ -14,7 +14,8 @@ import {UserQuery} from "@/types/UserQuery";
 import * as constants from "@/constants/constants";
 import * as cookies from "@/constants/cookies";
 import Cookies from "js-cookie";
-import {} from "@/api/Authorize"
+import {getOneUser} from "@/api/Authorize"
+import {getUserById} from "@/api/Users";
 
 interface GlobalContextData {
     loginOverlayVisible: boolean;
@@ -59,6 +60,9 @@ export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => 
     useEffect(() => {
         setIsClient(true);
         setUserIsLoggedIn(typeof currentUserFromCookies == "string");
+        getUserById(8).then((user) => {
+            setLoggedInUserData(user);
+        })
     }, [currentUserFromCookies])
 
     return (

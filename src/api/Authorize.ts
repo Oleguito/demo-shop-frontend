@@ -18,7 +18,7 @@ type AuthorizationResultInfo = {
 
 const GET_ALL_USERS_URL = `${routes.serverUrl}/users`;
 
-async function getOneUser(login: string) {
+export async function getOneUser(login: string) {
     return await getAllUsers().then((data) => {
         return data.find((u) => u.login === login);
     })
