@@ -1,11 +1,10 @@
-"use client";
-
 import {createContext, Dispatch, ReactNode, SetStateAction, useContext, useState} from "react";
 import {Utils} from "@/lib/utils";
 import {UserQuery} from "@/types/UserQuery";
 import * as constants from "@/constants/constants";
-import {cookies} from "next/headers";
+import * as cookies from "@/constants/cookies";
 import Cookies from "js-cookie";
+import {} from "@/api/Authorize"
 
 interface GlobalContextData {
     loginOverlayVisible: boolean;
@@ -32,6 +31,7 @@ export const GlobalContext
 });
 
 export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => {
+
     const [ loginOverlayVisible,
             setLoginOverlayVisible]
         = useState<boolean>(false);
@@ -41,6 +41,13 @@ export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => 
     const [ loggedInUserData,
             setLoggedInUserData]
         = useState<UserQuery>({} as UserQuery);
+
+    const currentUserFromCookies
+        = Cookies.get("currentUserID")
+    // console.log(currentUserFromCookies);
+    if (currentUserFromCookies) {
+        setUserIsLoggedIn(true);
+    }
 
     return (
         <GlobalContext.Provider value={{

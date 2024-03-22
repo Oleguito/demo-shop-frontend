@@ -8,7 +8,6 @@ export function LoginButton() {
         type="submit"
         className="loginImage"
         onClick={() => {
-            console.log(loginOverlayVisible);
             setLoginOverlayVisible(true);
         }}
     ></button>;

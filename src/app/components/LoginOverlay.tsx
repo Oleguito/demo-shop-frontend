@@ -1,5 +1,3 @@
-"use client";
-
 import { Checkbox } from "@/components/ui/checkbox";
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalContext";

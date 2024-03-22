@@ -1,0 +1,9 @@
+{
+	"users": [
+		{"id": 8,
+			"email": "tenzoriator@rambler.ru",
+			"password": 123456789,
+			"login": "Oleguito"
+		}
+	]
+}
