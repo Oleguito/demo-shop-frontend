@@ -75,7 +75,7 @@ const LoginOverlay: React.FC = () => {
                         <div className="loginFormNotRegisteredMessage">
                             <p>
                                 Not a user yet?{" "}
-                                <Link className="link" href="/authorization">
+                                <Link className="link" href={routes.register}>
                                     Register
                                 </Link>
                             </p>
