@@ -3,13 +3,18 @@
 import React, { useContext, useState } from "react";
 import LoginOverlay from "./components/LoginOverlay";
 import PageCarcass from "./components/PageCarcass";
-import { GlobalContextProvider } from "./context/GlobalContext";
+import {GlobalContext, GlobalContextProvider} from "./context/GlobalContext";
+import {LoginButton} from "@/app/components/LoginButton";
+import ProfileButton from "@/app/components/ProfileButton";
 
 export default function Home() {
+
+    const {userIsLoggedIn} = useContext(GlobalContext);
+
     return (
         <main>
             <GlobalContextProvider>
-                <PageCarcass />
+                <PageCarcass  />
                 <LoginOverlay />
             </GlobalContextProvider>
         </main>

@@ -1,23 +1,10 @@
-import React, { ReactNode, useContext, useEffect, useState } from 'react';
-import { GlobalContext } from '../context/GlobalContext';
-import { LoginButton } from '@/app/components/LoginButton';
-import { SearchBar } from '@/app/components/SearchBar';
-import { Logo } from '@/app/components/Logo';
-import { MainLayout } from '@/app/components/MainLayout';
-import {Utils} from '@/lib/utils';
+import React, {useContext, useEffect, useState} from 'react';
+import {GlobalContext} from '../context/GlobalContext';
+import {MainLayout} from '@/app/components/MainLayout';
 import Cookies from "js-cookie";
-import {getUserById} from "@/api/Users";
-import dynamic from 'next/dynamic';
+import {Header} from "@/app/components/Header";
 
-function Header() {
-    return (
-        <header className="flex justify-between mx-[15%]">
-            <Logo />
-            <SearchBar />
-            <LoginButton />
-        </header>
-    );
-}
+
 
 const PageCarcass = () => {
 
