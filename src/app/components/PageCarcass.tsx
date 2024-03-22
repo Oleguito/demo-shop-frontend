@@ -4,6 +4,7 @@ import {MainLayout} from '@/app/components/MainLayout';
 import Cookies from "js-cookie";
 import {Header} from "@/app/components/Header";
 import * as cookies from "@/constants/cookies";
+import DebugComponent from "@/app/components/DebugComponent";
 
 
 const PageCarcass = () => {
@@ -29,6 +30,7 @@ const PageCarcass = () => {
                 <br/>
                 User data (context): {JSON.stringify(loggedInUserData)}
             </div>
+            <DebugComponent />
             <MainLayout />
         </>
     );
