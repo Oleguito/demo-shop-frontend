@@ -3,7 +3,7 @@ import {GlobalContext} from '../context/GlobalContext';
 import {MainLayout} from '@/app/components/MainLayout';
 import Cookies from "js-cookie";
 import {Header} from "@/app/components/Header";
-
+import * as cookies from "@/constants/cookies";
 
 
 const PageCarcass = () => {
@@ -11,7 +11,7 @@ const PageCarcass = () => {
     const {loggedInUserData} = useContext(GlobalContext);
     const {userIsLoggedIn} = useContext(GlobalContext);
 
-    const currentUserId = Cookies.get("currentUserId");
+    const currentUserId = Cookies.get(cookies.currentUserID);
     const userIsLoggedInCookies = currentUserId !== undefined;
 
     const [isClient, setIsClient] = useState(false)
