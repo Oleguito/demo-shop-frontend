@@ -18,11 +18,6 @@ const DebugComponent = () => {
     const [isClient, setIsClient] = useState(false)
     useEffect(() => {
         setIsClient(true);
-        // setLoggedInUserData(
-        //     getUserByIdNotAsync(
-        //         currentUserId ? parseInt(currentUserId) : undefined
-        //     )
-        // );
     }, [])
 
     return (
@@ -41,5 +36,3 @@ const DebugComponent = () => {
 };
 
 export default DebugComponent;
-
-

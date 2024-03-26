@@ -8,11 +8,9 @@ import { GlobalContextProvider } from '@/app/context/GlobalContext';
 const ProfilePage = () => {
     return (
         <>
-            <GlobalContextProvider>
-                <Header />
-                <div>ProfilePage</div>
-                <DebugComponent />
-            </GlobalContextProvider>
+            <Header />
+            <div>ProfilePage</div>
+            <DebugComponent />
         </>
     );
 }
