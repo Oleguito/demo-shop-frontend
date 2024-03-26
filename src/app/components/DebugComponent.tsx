@@ -1,14 +1,15 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {GlobalContext} from '../context/GlobalContext';
+import {GlobalContext} from '@/app/context/GlobalContext';
 import {MainLayout} from '@/app/components/MainLayout';
 import Cookies from "js-cookie";
 import {Header} from "@/app/components/Header";
 import * as cookies from "@/constants/cookies";
+import { getUserById, getUserByIdNotAsync } from '@/api/Users';
 
 
-const PageCarcass = () => {
+const DebugComponent = () => {
 
-    const {loggedInUserData} = useContext(GlobalContext);
+    const {loggedInUserData, setLoggedInUserData} = useContext(GlobalContext);
     const {userIsLoggedIn} = useContext(GlobalContext);
 
     const currentUserId = Cookies.get(cookies.currentUserId);
@@ -16,8 +17,13 @@ const PageCarcass = () => {
 
     const [isClient, setIsClient] = useState(false)
     useEffect(() => {
-        setIsClient(true)
-    }, [currentUserId, loggedInUserData])
+        setIsClient(true);
+        // setLoggedInUserData(
+        //     getUserByIdNotAsync(
+        //         currentUserId ? parseInt(currentUserId) : undefined
+        //     )
+        // );
+    }, [])
 
     return (
         <>
@@ -34,4 +40,6 @@ const PageCarcass = () => {
     );
 };
 
-export default PageCarcass;
+export default DebugComponent;
+
+

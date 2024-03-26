@@ -1,8 +1,8 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import React, { useContext, useEffect } from "react";
-import { GlobalContext } from "../context/GlobalContext";
+import { GlobalContext } from "@/app/context/GlobalContext";
 import axios from "axios";
-import { routes } from "../routes/routes";
+import { routes } from "@/app/routes/routes";
 import Link from "next/link";
 import { authorizeUser } from "@/api/Authorize";
 

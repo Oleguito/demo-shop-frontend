@@ -16,6 +16,7 @@ import * as cookies from "@/constants/cookies";
 import Cookies from "js-cookie";
 import {getOneUser} from "@/api/Authorize"
 import {getUserById} from "@/api/Users";
+import { log } from "console";
 
 interface GlobalContextData {
     loginOverlayVisible: boolean;
@@ -58,14 +59,18 @@ export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => 
 
     const [isClient, setIsClient] = useState(false)
     useEffect(() => {
+        console.log("we are here");
         setIsClient(true);
         setUserIsLoggedIn(typeof currentUserFromCookies == "string");
+        console.log("context: " + currentUserFromCookies);
+        
         if(currentUserFromCookies !== undefined) {
+            
             getUserById(parseInt(currentUserFromCookies)).then((user) => {
                 setLoggedInUserData(user);
             })
         }
-    }, [currentUserFromCookies])
+    }, [])
 
     return (
         <GlobalContext.Provider value={{
