@@ -11,22 +11,24 @@ const PageCarcass = () => {
     const {loggedInUserData} = useContext(GlobalContext);
     const {userIsLoggedIn} = useContext(GlobalContext);
 
-    const currentUserId = Cookies.get(cookies.currentUserID);
-    const userIsLoggedInCookies = currentUserId !== undefined;
+    const currentUserId = Cookies.get(cookies.currentUserId);
+    // const userIsLoggedInCookies = currentUserId !== undefined;
 
     const [isClient, setIsClient] = useState(false)
     useEffect(() => {
         setIsClient(true)
-    }, [currentUserId])
+    }, [currentUserId, loggedInUserData])
 
     return (
         <>
             <div>
                 User Id (Cookies): <span>{isClient && currentUserId}</span>
-                <br/>
-                User is logged in (context): {userIsLoggedIn ? "yes" : "no"}
-                <br/>
-                User data (context): {JSON.stringify(loggedInUserData)}
+                <br />
+                User is logged in (context):{" "}
+                {isClient && userIsLoggedIn ? "yes" : "no"}
+                <br />
+                User data (context):{" "}
+                {isClient && loggedInUserData ? JSON.stringify(loggedInUserData) : "asdf"}
             </div>
         </>
     );

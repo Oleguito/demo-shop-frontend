@@ -9,27 +9,20 @@ import DebugComponent from "@/app/components/DebugComponent";
 
 const PageCarcass = () => {
 
-    const {loggedInUserData} = useContext(GlobalContext);
-    const {userIsLoggedIn} = useContext(GlobalContext);
+    // const {loggedInUserData} = useContext(GlobalContext);
+    // const {userIsLoggedIn} = useContext(GlobalContext);
 
-    const currentUserId = Cookies.get(cookies.currentUserID);
-    const userIsLoggedInCookies = currentUserId !== undefined;
+    // const [isClient, setIsClient] = useState(false)
+    
+    // const currentUserId = Cookies.get(cookies.currentUserId);
 
-    const [isClient, setIsClient] = useState(false)
-    useEffect(() => {
-        setIsClient(true)
-    }, [currentUserId])
+    // useEffect(() => {
+    //     setIsClient(true);
+    // }, [])
 
     return (
         <>
             <Header />
-            <div>
-                User Id (Cookies): <span>{isClient && currentUserId}</span>
-                <br/>
-                User is logged in (context): {userIsLoggedIn ? "yes" : "no"}
-                <br/>
-                User data (context): {JSON.stringify(loggedInUserData)}
-            </div>
             <DebugComponent />
             <MainLayout />
         </>
