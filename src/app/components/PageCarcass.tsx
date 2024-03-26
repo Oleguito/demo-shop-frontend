@@ -11,7 +11,6 @@ const PageCarcass = () => {
 
     return (
         <>
-            <Header />
             <MainLayout />
         </>
     );

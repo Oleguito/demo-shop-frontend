@@ -1,5 +1,6 @@
 import React from "react";
 import {useRouter} from "next/navigation";
+import {routes} from "@/app/routes/routes";
 
 export default function ProfileButton() {
 
@@ -10,7 +11,7 @@ export default function ProfileButton() {
         className="profileImage"
         onClick={() => {
             console.log("this is a profile button");
-            router.push("/pages/profile");
+            router.push(routes.profilePage);
         }}
     ></button>;
 }

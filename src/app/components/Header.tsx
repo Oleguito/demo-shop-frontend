@@ -8,9 +8,9 @@ import ProfileButton from "@/app/components/ProfileButton";
 import {GlobalContext} from "@/app/context/GlobalContext";
 import {useRouter} from "next/navigation";
 
-type Props = {
-    buttonToTheRight: React.ReactNode;
-}
+// type Props = {
+//     buttonToTheRight: React.ReactNode;
+// }
 
 export function Header() {
 
