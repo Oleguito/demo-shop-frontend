@@ -9,21 +9,9 @@ import * as cookies from "@/constants/cookies";
 
 const PageCarcass = () => {
 
-    // const {loggedInUserData} = useContext(GlobalContext);
-    // const {userIsLoggedIn} = useContext(GlobalContext);
-
-    // const [isClient, setIsClient] = useState(false)
-    
-    // const currentUserId = Cookies.get(cookies.currentUserId);
-
-    // useEffect(() => {
-    //     setIsClient(true);
-    // }, [])
-
     return (
         <>
             <Header />
-            <DebugComponent />
             <MainLayout />
         </>
     );
