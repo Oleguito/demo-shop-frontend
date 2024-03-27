@@ -1,10 +1,10 @@
 'use client';
 
 
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Header} from '@/app/components/Header';
 import DebugComponent from '@/app/components/DebugComponent';
-import {GlobalContextProvider} from '@/app/context/GlobalContext';
+import {GlobalContext, GlobalContextProvider} from '@/app/context/GlobalContext';
 import * as Card from "@/components/ui/card.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {Input} from "@/components/ui/input.tsx";
@@ -23,6 +23,7 @@ import {
 
 const AdminProfilePage = () => {
 
+    const {userIsLoggedIn} = useContext(GlobalContext);
     const [categories, setCategories] = useState<CategoryResponse[]>([]);
 
     useEffect(() => {
@@ -32,7 +33,7 @@ const AdminProfilePage = () => {
     }, []);
 
 
-    return (
+    return ( userIsLoggedIn &&
         <>
             <div className="text-4xl flex justify-center items-center">
                 <span className="text-center">AdminProfilePage</span>

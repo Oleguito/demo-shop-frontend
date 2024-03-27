@@ -13,21 +13,25 @@ import { Button } from '@/components/ui/button.tsx';
 import { GlobalContext } from '@/app/context/GlobalContext.tsx';
 import Cookies from "js-cookie";
 import * as cookies from "@/constants/cookies.ts"
+import {UserQuery} from "@/types/user/user.types.ts";
 
 export default function ProfileButton() {
     const router = useRouter();
 
-    const { loggedInUserData } = useContext(GlobalContext);
+    const {
+        userIsLoggedIn,
+        loggedInUserData ,
+        setUserIsLoggedIn,
+        setLoggedInUserData
+    } = useContext(GlobalContext);
 
-    return (
+    return ( userIsLoggedIn &&
         <>
             <DropdownMenu>
                 <DropdownMenuTrigger>
-                    <Button
-                        type="submit"
+                    <div
                         className="profileImage"
-
-                    ></Button>
+                    ></div>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -46,7 +50,10 @@ export default function ProfileButton() {
                     <DropdownMenuItem
                         onClick={() => {
                             console.log('Logging out...');
-                            Cookies.remove(cookies.currentUserId)
+                            Cookies.remove(cookies.currentUserId);
+                            setUserIsLoggedIn(false);
+                            setLoggedInUserData({} as UserQuery);
+                            router.refresh();
                         }}
                     >
                         Log Out

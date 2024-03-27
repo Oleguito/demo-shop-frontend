@@ -1,9 +1,10 @@
-"use client"
+'use client';
 
-import React from 'react'
-import {Header} from "@/app/components/Header";
-import DebugComponent from "@/app/components/DebugComponent";
+import React from 'react';
+import { Header } from '@/app/components/Header';
+import DebugComponent from '@/app/components/DebugComponent';
 import { GlobalContextProvider } from '@/app/context/GlobalContext';
+import LoginOverlay from '@/app/components/LoginOverlay.tsx';
 
 const ProfilePage = () => {
     return (
@@ -12,5 +13,5 @@ const ProfilePage = () => {
             <DebugComponent />
         </>
     );
-}
-export default ProfilePage
+};
+export default ProfilePage;
