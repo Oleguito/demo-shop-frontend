@@ -75,6 +75,18 @@ const AdminProfilePage = () => {
                                 </div>
                             </AccordionContent>
                         </AccordionItem>
+                        <AccordionItem value="item-3">
+                            <AccordionTrigger>Update</AccordionTrigger>
+                            <AccordionContent>
+                                <div>Update Category stuff</div>
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-4">
+                            <AccordionTrigger>Delete</AccordionTrigger>
+                            <AccordionContent>
+                                <div>Delete Category stuff</div>
+                            </AccordionContent>
+                        </AccordionItem>
                     </Accordion>
                 </TabsContent>
                 <TabsContent value="password">
