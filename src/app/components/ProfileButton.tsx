@@ -11,6 +11,8 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button.tsx';
 import { GlobalContext } from '@/app/context/GlobalContext.tsx';
+import Cookies from "js-cookie";
+import * as cookies from "@/constants/cookies.ts"
 
 export default function ProfileButton() {
     const router = useRouter();
@@ -44,6 +46,7 @@ export default function ProfileButton() {
                     <DropdownMenuItem
                         onClick={() => {
                             console.log('Logging out...');
+                            Cookies.remove(cookies.currentUserId)
                         }}
                     >
                         Log Out
