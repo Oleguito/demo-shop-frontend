@@ -1,3 +1,5 @@
+"use client"
+
 import React, {useContext, useEffect, useState} from 'react'
 import {
     Accordion,
@@ -21,8 +23,8 @@ const UsersAccordion = () => {
     const [users, setUsers] = useState<UserQuery[]>([]);
 
     useEffect(() => {
-        getAllCategories().then(data => {
-            setCategories(data);
+        getAllUsers().then(data => {
+            setUsers(data);
         });
     }, []);
 
