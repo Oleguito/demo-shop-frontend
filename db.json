@@ -5,5 +5,10 @@
 			"password": 123456789,
 			"login": "Oleguito"
 		}
+	],
+	"categories": [
+		{"id":1,"title":"foods"},
+		{"id":2,"title":"services"},
+		{"id":3,"title":"tools"}
 	]
 }
