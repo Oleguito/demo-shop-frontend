@@ -6,6 +6,7 @@ import PageCarcass from "./components/PageCarcass";
 import {GlobalContext, GlobalContextProvider} from "./context/GlobalContext";
 import {LoginButton} from "@/app/components/LoginButton";
 import ProfileButton from "@/app/components/ProfileButton";
+import DebugComponent from "@/app/components/DebugComponent.tsx";
 
 export default function Home() {
 
@@ -13,10 +14,9 @@ export default function Home() {
 
     return (
         <main>
-            <GlobalContextProvider>
-                <PageCarcass  />
-                <LoginOverlay />
-            </GlobalContextProvider>
+            <DebugComponent />
+            <PageCarcass  />
+            <LoginOverlay />
         </main>
     );
 }

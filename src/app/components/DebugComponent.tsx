@@ -4,12 +4,12 @@ import {MainLayout} from '@/app/components/MainLayout';
 import Cookies from "js-cookie";
 import {Header} from "@/app/components/Header";
 import * as cookies from "@/constants/cookies";
-import { getUserById, getUserByIdNotAsync } from '@/api/Users';
+import {getUserById, getUserByIdNotAsync} from '@/api/Users';
 
 
 const DebugComponent = () => {
 
-    const {loggedInUserData, setLoggedInUserData} = useContext(GlobalContext);
+    const {loginOverlayVisible, loggedInUserData, setLoggedInUserData} = useContext(GlobalContext);
     const {userIsLoggedIn} = useContext(GlobalContext);
 
     const currentUserId = Cookies.get(cookies.currentUserId);
@@ -23,13 +23,19 @@ const DebugComponent = () => {
     return (
         <>
             <div>
-                User Id (Cookies): <span>{isClient && currentUserId}</span>
-                <br />
-                User is logged in (context):{" "}
-                {isClient && userIsLoggedIn ? "yes" : "no"}
-                <br />
-                User data (context):{" "}
-                {isClient && loggedInUserData ? JSON.stringify(loggedInUserData) : "asdf"}
+                <h1 className="text-2xl">Data from context</h1>
+                <p className="ml-10">User is logged in (context): {" "}
+                    {isClient && userIsLoggedIn ? "yes" : "no"}
+                </p>
+                <p className="ml-10">User data (context): {" "}
+                    {isClient && loggedInUserData ? JSON.stringify(loggedInUserData) : "asdf"}
+                </p>
+                <p className="ml-10">Login overlay
+                    visible: {isClient && loginOverlayVisible ? "yes" : "no"}</p>
+                <h1 className="text-2xl">Other data</h1>
+                <p className="ml-10">User Id (Cookies): {" "}
+                    <span>{isClient && currentUserId ? currentUserId : "N/A" }</span>
+                </p>
             </div>
         </>
     );

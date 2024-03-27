@@ -9,6 +9,7 @@ export function LoginButton() {
         className="loginImage"
         onClick={() => {
             setLoginOverlayVisible(true);
+            console.log("tadaaa");
         }}
     ></button>;
 }
