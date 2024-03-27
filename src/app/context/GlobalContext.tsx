@@ -9,7 +9,7 @@ import {
     useEffect,
     useState
 } from "react";
-import {UserQuery} from "@/types/UserQuery";
+import {UserTypes} from "@/types/user/user.types.ts";
 import * as constants from "@/constants/constants";
 import * as cookies from "@/constants/cookies";
 import Cookies from "js-cookie";
@@ -22,8 +22,8 @@ interface GlobalContextData {
     setLoginOverlayVisible: (value: boolean) => void;
     userIsLoggedIn: boolean;
     setUserIsLoggedIn: Dispatch<SetStateAction<boolean>>;
-    loggedInUserData: UserQuery;
-    setLoggedInUserData: Dispatch<SetStateAction<UserQuery>>;
+    loggedInUserData: UserTypes;
+    setLoggedInUserData: Dispatch<SetStateAction<UserTypes>>;
 }
 
 interface GlobalContextProviderProps {
@@ -37,7 +37,7 @@ export const GlobalContext
     // @ts-ignore
     userIsLoggedIn: Cookies.get("currentUserId") !== undefined,
     setUserIsLoggedIn: () => {},
-    loggedInUserData: {} as UserQuery,
+    loggedInUserData: {} as UserTypes,
     setLoggedInUserData: () => {},
 });
 
@@ -54,7 +54,7 @@ export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => 
         = useState<boolean>(false);
     const [ loggedInUserData,
             setLoggedInUserData]
-        = useState<UserQuery>({} as UserQuery);
+        = useState<UserTypes>({} as UserTypes);
 
     const [isClient, setIsClient] = useState(false)
     useEffect(() => {

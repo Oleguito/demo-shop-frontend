@@ -1,7 +1,7 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
-import {CategoryResponse} from "@/types/Category.ts";
+import {CategoryResponse} from "@/types/category/Category.ts";
 import {Button} from "@/components/ui/button.tsx";
 import {ArrowUpDown} from "lucide-react";
 import * as React from "react"

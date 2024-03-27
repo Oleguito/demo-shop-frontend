@@ -1,7 +1,7 @@
 import axios, {AxiosResponse} from "axios";
 import * as routes from "@/app/routes/routes.ts";
 import Cookies from "js-cookie";
-import {UserQuery} from "@/types/UserQuery";
+import {UserQuery} from "@/types/user/user.types.ts";
 
 export type AuthorizeCredentials = {
     login: string;

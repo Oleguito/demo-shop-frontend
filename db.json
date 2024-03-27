@@ -1,14 +1,23 @@
 {
 	"users": [
-		{"id": 8,
+		{
+			"id": 8,
 			"email": "tenzoriator@rambler.ru",
 			"password": 123456789,
-			"login": "Oleguito"
+			"login": "Oleguito",
+			"accountType": "ADMIN"
+		},
+		{
+			"id": 9,
+			"email": "tenzoriator@gmail.ru",
+			"password": 123456789,
+			"login": "Oleguote",
+			"accountType": "USER"
 		}
 	],
 	"categories": [
-		{"id":1,"title":"foods"},
-		{"id":2,"title":"services"},
-		{"id":3,"title":"tools"}
+		{"id":1,"title":"Foods"},
+		{"id":2,"title":"Services"},
+		{"id":3,"title":"Tools"}
 	]
 }

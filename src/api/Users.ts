@@ -1,4 +1,4 @@
-import {UserQuery} from "@/types/UserQuery";
+import {UserQuery} from "@/types/user/user.types.ts";
 import axios, { AxiosResponse } from "axios";
 import * as constants from "@/constants/constants";
 import {backend} from "@/app/routes/routes.ts";

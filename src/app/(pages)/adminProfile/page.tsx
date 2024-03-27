@@ -13,7 +13,7 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
 import {getAllCategories} from "@/api/Categories.ts";
 import {DataTable} from "@/app/components/tables/categories/data-table.tsx";
 import {columns} from "@/app/components/tables/categories/columns.tsx";
-import {CategoryResponse} from "@/types/Category.ts";
+import {CategoryResponse} from "@/types/category/Category.ts";
 import {
     Accordion,
     AccordionContent,
