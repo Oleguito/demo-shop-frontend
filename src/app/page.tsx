@@ -16,7 +16,6 @@ export default function Home() {
             <main>
                 <DebugComponent />
                 <PageCarcass />
-                <LoginOverlay />
             </main>
         </>
     );
