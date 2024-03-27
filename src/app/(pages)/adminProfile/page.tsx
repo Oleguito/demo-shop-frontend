@@ -46,8 +46,9 @@ const AdminProfilePage = () => {
             <Tabs defaultValue="categories" className="w-[100vw] flex-col">
                 <TabsList>
                     <TabsTrigger value="categories">Categories</TabsTrigger>
-                    <TabsTrigger value="password">Password</TabsTrigger>
-                    <TabsTrigger value="something-else">Something else</TabsTrigger>
+                    <TabsTrigger value="users">Users</TabsTrigger>
+                    <TabsTrigger value="products">Products</TabsTrigger>
+                    <TabsTrigger value="product-bin">Product bin</TabsTrigger>
                 </TabsList>
                 <TabsContent value="categories">
                     <Accordion type="single" collapsible>
@@ -90,11 +91,14 @@ const AdminProfilePage = () => {
                         </AccordionItem>
                     </Accordion>
                 </TabsContent>
-                <TabsContent value="password">
-                    Change your password here.
+                <TabsContent value="users">
+                    <p>Users stuff here</p>
                 </TabsContent>
-                <TabsContent value="something-else">
-                    sth else here
+                <TabsContent value="products">
+                    <p>Products stuff here</p>
+                </TabsContent>
+                <TabsContent value="product-bin">
+                    <p>Product bin stuff here</p>
                 </TabsContent>
             </Tabs>
         </>
