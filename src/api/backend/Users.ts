@@ -19,3 +19,12 @@ export function getUserByIdNotAsync(id: number | undefined): UserQuery {
         })
     return result;
 }
+
+export function getAllUsers(): Promise<UserQuery[]> {
+    const url = `${backend.backendServerUrl}/users`;
+    return axios
+        .get(url)
+        .then((response: AxiosResponse<UserQuery[]>) => {
+            return response.data;
+        });
+}

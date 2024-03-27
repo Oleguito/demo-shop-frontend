@@ -14,7 +14,7 @@ import {
     useReactTable,
 } from "@tanstack/react-table"
 
-export const columns: ColumnDef<CategoryResponse>[] = [
+export const columnsCategories: ColumnDef<CategoryResponse>[] = [
     {
         accessorKey: "id",
         enableSorting: true,
