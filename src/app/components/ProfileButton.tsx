@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import { frontend } from '@/app/routes/routes.ts';
 import {
@@ -10,12 +10,12 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button.tsx';
-import {GlobalContext} from "@/app/context/GlobalContext.tsx";
+import { GlobalContext } from '@/app/context/GlobalContext.tsx';
 
 export default function ProfileButton() {
     const router = useRouter();
 
-    const {loggedInUserData} = useContext(GlobalContext);
+    const { loggedInUserData } = useContext(GlobalContext);
 
     return (
         <>
@@ -24,10 +24,7 @@ export default function ProfileButton() {
                     <Button
                         type="submit"
                         className="profileImage"
-                        onClick={() => {
-                            console.log('this is a profile button');
-                            router.push(frontend.profilePage);
-                        }}
+
                     ></Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -35,7 +32,11 @@ export default function ProfileButton() {
                     <DropdownMenuSeparator />
                     <DropdownMenuItem
                         onClick={() => {
-                            console.log('whatever');
+                            router.push(
+                                loggedInUserData.accountType === 'ADMIN'
+                                    ? frontend.adminProfilePage
+                                    : frontend.profilePage,
+                            );
                         }}
                     >
                         Profile

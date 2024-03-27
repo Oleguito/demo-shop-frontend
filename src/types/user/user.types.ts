@@ -3,6 +3,7 @@ export type UserQuery = {
     login: string;
     email: string;
     password: string;
+    accountType: string;
 }
 export type RegisterCredentials = {
     login: string;
