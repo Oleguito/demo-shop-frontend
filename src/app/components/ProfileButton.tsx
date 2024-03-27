@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useRouter } from 'next/navigation';
 import { frontend } from '@/app/routes/routes.ts';
 import {
@@ -10,9 +10,12 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button.tsx';
+import {GlobalContext} from "@/app/context/GlobalContext.tsx";
 
 export default function ProfileButton() {
     const router = useRouter();
+
+    const {loggedInUserData} = useContext(GlobalContext);
 
     return (
         <>

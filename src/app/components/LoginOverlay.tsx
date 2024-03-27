@@ -2,7 +2,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "@/app/context/GlobalContext";
 import axios from "axios";
-import { frontend } from "@/app/routes/routes.ts";
+import {backend, frontend} from "@/app/routes/routes.ts";
 import Link from "next/link";
 import { authorizeUser } from "@/api/backend/Authorize.ts";
 
@@ -75,7 +75,7 @@ const LoginOverlay: React.FC = () => {
                         <div className="loginFormNotRegisteredMessage">
                             <p>
                                 Not a user yet?{" "}
-                                <Link className="link" href={frontend.register}>
+                                <Link className="link" href={backend.register}>
                                     Register
                                 </Link>
                             </p>
