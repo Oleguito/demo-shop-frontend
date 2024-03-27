@@ -1,5 +1,6 @@
 'use client';
 
+
 import React, {useEffect, useState} from 'react';
 import {Header} from '@/app/components/Header';
 import DebugComponent from '@/app/components/DebugComponent';
@@ -13,6 +14,12 @@ import {getAllCategories} from "@/api/Categories.ts";
 import {DataTable} from "@/app/components/tables/categories/data-table.tsx";
 import {columns} from "@/app/components/tables/categories/columns.tsx";
 import {CategoryResponse} from "@/types/Category.ts";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const AdminProfilePage = () => {
 
@@ -42,19 +49,33 @@ const AdminProfilePage = () => {
                     <TabsTrigger value="something-else">Something else</TabsTrigger>
                 </TabsList>
                 <TabsContent value="categories">
-                    <div className="text-red-400">Create category fields</div>
-                    <div className="text-red-400">
-                        <p>List of categories table</p>
-                        <Button onClick={() => {
-                            getAllCategories().then(data => {
-                                console.log(data)});
-                        }}>
-                            GetCategories
-                        </Button>
-                        <div className="container mx-auto py-10">
-                            <DataTable columns={columns} data={categories} />
-                        </div>
-                    </div>
+                    <Accordion type="single" collapsible>
+                        <AccordionItem value="item-1">
+                            <AccordionTrigger>Create</AccordionTrigger>
+                            <AccordionContent>
+                                <div>Create Category stuff</div>
+                                <div className="text-red-400">Create category fields</div>
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-2">
+                            <AccordionTrigger>Read</AccordionTrigger>
+                            <AccordionContent>
+                                <div>Read Categories stuff</div>
+                                <div className="text-red-400">
+                                    <p>List of categories table</p>
+                                    <Button onClick={() => {
+                                        getAllCategories().then(data => {
+                                            console.log(data)});
+                                    }}>
+                                        GetCategories
+                                    </Button>
+                                    <div className="container mx-auto py-10">
+                                        <DataTable columns={columns} data={categories} />
+                                    </div>
+                                </div>
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
                 </TabsContent>
                 <TabsContent value="password">
                     Change your password here.

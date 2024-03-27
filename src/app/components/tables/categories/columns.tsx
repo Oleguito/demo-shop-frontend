@@ -29,11 +29,20 @@ export const columns: ColumnDef<CategoryResponse>[] = [
                 </Button>
             )
         },
-        cell: ({ row }) => <div className="lowercase">{row.getValue("id")}</div>,
     },
     {
         accessorKey: "title",
-        header: "Title",
         enableSorting: true,
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Title
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        },
     },
 ]
