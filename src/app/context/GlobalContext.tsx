@@ -9,7 +9,6 @@ import {
     useEffect,
     useState
 } from "react";
-import {Utils} from "@/lib/utils";
 import {UserQuery} from "@/types/UserQuery";
 import * as constants from "@/constants/constants";
 import * as cookies from "@/constants/cookies";
@@ -59,11 +58,9 @@ export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => 
 
     const [isClient, setIsClient] = useState(false)
     useEffect(() => {
-        console.log("we are here");
         setIsClient(true);
         setUserIsLoggedIn(typeof currentUserFromCookies == "string");
-        console.log("context: " + currentUserFromCookies);
-        
+
         if(currentUserFromCookies !== undefined) {
             
             getUserById(parseInt(currentUserFromCookies)).then((user) => {

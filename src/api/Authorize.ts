@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from "axios";
-import * as routes from "@/app/routes/routes";
+import * as routes from "@/app/routes/routes.ts";
 import Cookies from "js-cookie";
 import {UserQuery} from "@/types/UserQuery";
 
@@ -16,7 +16,7 @@ type AuthorizationResultInfo = {
     userId: number;
 };
 
-const GET_ALL_USERS_URL = `${routes.serverUrl}/users`;
+const GET_ALL_USERS_URL = `${routes.backendServerUrl}/users`;
 
 export async function getOneUser(login: string) {
     return await getAllUsers().then((data) => {

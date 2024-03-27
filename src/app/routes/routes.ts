@@ -1,9 +1,12 @@
-export const serverUrl = "http://localhost:8080";
+export const backendServerUrl = "http://localhost:8080";
+export const backend = {
+    backendServerUrl,
+    addUser: backendServerUrl + "/users/add",
+    categories: backendServerUrl + "/categories",
+    register: backendServerUrl + "/register",
+}
 
-export const routes = {
-    serverUrl: "http://localhost:8080",
-    addUser: serverUrl + "/users/add",
-    register: serverUrl + "/register",
-    profilePage: "/profile",
+export const frontend = {
     adminProfilePage: "/adminProfile",
+    profilePage: "/profile",
 }

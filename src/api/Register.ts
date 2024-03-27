@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import * as routes from "@/app/routes/routes";
+import * as routes from "@/app/routes/routes.ts";
 
 export type RegisterCredentials = {
     login: string;
@@ -13,7 +13,7 @@ export type RegisterResponse = {
     email: string;
 };
 
-const REGISTER_USER_URL = `${routes.serverUrl}/users/add`;
+const REGISTER_USER_URL = `${routes.backendServerUrl}/users/add`;
 
 export const registerUser = async (credentials: RegisterCredentials) => {
     return await axios

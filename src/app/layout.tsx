@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Demo shop app",
-    description: "Front end for demo-shop backend project in Node.TS",
+    description: "Front end for demo-shop routes project in Node.TS",
 };
 
 export default function RootLayout({
