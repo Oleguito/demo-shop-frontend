@@ -37,7 +37,7 @@ border: 1px dotted white;
     background-position: center;
     width: 4rem;
     height: 4rem;
-    background-size: contain;
+    background-size: cover;
 }
 
 .loginOverlay {
