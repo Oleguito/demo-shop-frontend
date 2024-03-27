@@ -10,7 +10,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {Input} from "@/components/ui/input.tsx";
 import {Label} from "@/components/ui/label.tsx";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
-import {getAllCategories} from "@/api/Categories.ts";
+import {getAllCategories} from "@/api/backend/Categories.ts";
 import {DataTable} from "@/app/components/tables/categories/data-table.tsx";
 import {columns} from "@/app/components/tables/categories/columns.tsx";
 import {CategoryResponse} from "@/types/category/Category.ts";

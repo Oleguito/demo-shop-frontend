@@ -13,8 +13,8 @@ import {UserTypes} from "@/types/user/user.types.ts";
 import * as constants from "@/constants/constants";
 import * as cookies from "@/constants/cookies";
 import Cookies from "js-cookie";
-import {getOneUser} from "@/api/Authorize"
-import {getUserById} from "@/api/Users";
+import {getOneUser} from "@/api/backend/Authorize.ts"
+import {getUserById} from "@/api/backend/Users.ts";
 import { log } from "console";
 
 interface GlobalContextData {

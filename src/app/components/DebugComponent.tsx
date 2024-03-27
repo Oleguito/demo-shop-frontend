@@ -4,7 +4,7 @@ import {MainLayout} from '@/app/components/MainLayout';
 import Cookies from "js-cookie";
 import {Header} from "@/app/components/Header";
 import * as cookies from "@/constants/cookies";
-import {getUserById, getUserByIdNotAsync} from '@/api/Users';
+import {getUserById, getUserByIdNotAsync} from '@/api/backend/Users.ts';
 
 const DEBUG = true;
 

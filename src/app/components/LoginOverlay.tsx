@@ -4,7 +4,7 @@ import { GlobalContext } from "@/app/context/GlobalContext";
 import axios from "axios";
 import { frontend } from "@/app/routes/routes.ts";
 import Link from "next/link";
-import { authorizeUser } from "@/api/Authorize";
+import { authorizeUser } from "@/api/backend/Authorize.ts";
 
 const LoginOverlay: React.FC = () => {
 

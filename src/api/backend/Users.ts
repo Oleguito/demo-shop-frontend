@@ -1,6 +1,6 @@
 import {UserQuery} from "@/types/user/user.types.ts";
 import axios, { AxiosResponse } from "axios";
-import * as constants from "@/constants/constants";
+import * as constants from "@/constants/constants.ts";
 import {backend} from "@/app/routes/routes.ts";
 
 export async function getUserById(id: number): Promise<UserQuery> {
