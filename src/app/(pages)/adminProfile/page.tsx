@@ -27,6 +27,7 @@ import {
 import { getAllUsers } from '@/api/backend/Users.ts';
 import CategoriesAccordion from '@/app/components/accordions/CategoriesAccordion.tsx';
 import UsersAccordion from '@/app/components/accordions/UsersAccordion.tsx';
+import CategoriesTable from "@/app/(pages)/tables/CategoriesTable.tsx";
 
 const AdminProfilePage = () => {
     const { userIsLoggedIn } = useContext(GlobalContext);
@@ -50,7 +51,7 @@ const AdminProfilePage = () => {
                     <div className="w-[70%]"></div>
                 </div>
                 <DebugComponent />
-                <Tabs defaultValue="categories" className="w-[100vw] flex-col text-amber-100 mx-[10%] mt-8">
+                <Tabs defaultValue="categories" className="w-[100vw] flex-col text-amber-100 ml-[0%] mt-8">
                     <TabsList>
                         <TabsTrigger value="categories">Categories</TabsTrigger>
                         <TabsTrigger value="users">Users</TabsTrigger>
@@ -61,7 +62,7 @@ const AdminProfilePage = () => {
                     </TabsList>
                     <TabsContent value="categories">
                         <p>Categories stuff here</p>
-                        <CategoriesAccordion />
+                        <CategoriesTable/>
                     </TabsContent>
                     <TabsContent value="users">
                         <p>Users stuff here</p>
