@@ -12,7 +12,8 @@ import {
     getPaginationRowModel,
     getSortedRowModel,
     useReactTable,
-} from "@tanstack/react-table"
+} from "@tanstack/react-table";
+import { IoTrashBinOutline } from "react-icons/io5";
 
 export const columnsCategories: ColumnDef<CategoryResponse>[] = [
     {
@@ -45,4 +46,17 @@ export const columnsCategories: ColumnDef<CategoryResponse>[] = [
             )
         },
     },
+    {
+        accessorKey: "delete",
+        header: ({column}) => {
+            return (
+                <>Delete</>
+            )
+        },
+        cell: ({row}) => (
+            <Button>
+                <IoTrashBinOutline />
+            </Button>
+        )
+    }
 ]

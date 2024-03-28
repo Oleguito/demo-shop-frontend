@@ -31,14 +31,6 @@ import CategoriesTable from "@/app/(pages)/tables/CategoriesTable.tsx";
 
 const AdminProfilePage = () => {
     const { userIsLoggedIn } = useContext(GlobalContext);
-    const [categories, setCategories] = useState<CategoryResponse[]>([]);
-    const [users, setUsers] = useState<UserQuery[]>([]);
-
-    useEffect(() => {
-        getAllCategories().then((data) => {
-            setCategories(data);
-        });
-    }, []);
 
     return (
         userIsLoggedIn && (
