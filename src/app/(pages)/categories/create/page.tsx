@@ -1,10 +1,10 @@
 import React from 'react';
-import CreateCategoryForm from '@/app/components/CreateCategoryForm.tsx';
+import CreateOrUpdateCategoryForm from '@/app/components/CreateOrUpdateCategoryForm.tsx';
 
 const Page = () => {
     return (
         <>
-            <CreateCategoryForm />
+            <CreateOrUpdateCategoryForm />
         </>
     );
 };

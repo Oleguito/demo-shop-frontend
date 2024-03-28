@@ -55,7 +55,9 @@ export const columnsCategories: ColumnDef<CategoryResponse>[] = [
             )
         },
         cell: ({row}) => (
-            <Button>
+            <Button onClick={() => {
+                console.log("deleting category...");
+            }}>
                 <IoTrashBinOutline />
             </Button>
         )
@@ -68,7 +70,9 @@ export const columnsCategories: ColumnDef<CategoryResponse>[] = [
             )
         },
         cell: ({row}) => (
-            <Button>
+            <Button onClick={() => {
+                console.log("editing category...");
+            }}>
                 <GrEdit />
             </Button>
         )

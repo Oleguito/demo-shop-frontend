@@ -34,6 +34,7 @@ function ThisForm() {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.log(values);
+        console.log("creating category...");
     }
 
     return (
@@ -69,7 +70,7 @@ function ThisForm() {
     );
 }
 
-const CreateCategoryForm = () => {
+const CreateOrUpdateCategoryForm = () => {
     return (
         <>
             <div className={'mt-[10%] w-[75%] mx-[10%]'}>
@@ -78,4 +79,4 @@ const CreateCategoryForm = () => {
         </>
     );
 };
-export default CreateCategoryForm;
+export default CreateOrUpdateCategoryForm;
