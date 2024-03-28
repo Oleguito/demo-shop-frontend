@@ -15,10 +15,9 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import {postOneCategory} from "@/api/backend/Categories.ts";
 
 const formSchema = z.object({
-    categoryName: z.string().min(2).max(50),
+    productName: z.string().min(2).max(50),
 });
 
 function ThisForm() {
@@ -26,7 +25,7 @@ function ThisForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            categoryName: '',
+            productName: '',
         },
     });
 
@@ -35,8 +34,7 @@ function ThisForm() {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.log(values);
-        console.log("creating category...");
-        postOneCategory(values)
+        console.log("creating product...");
     }
 
     return (
@@ -44,18 +42,18 @@ function ThisForm() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <FormField
                     control={form.control}
-                    name="categoryName"
+                    name="productName"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Name your Category</FormLabel>
+                            <FormLabel>Name your Product</FormLabel>
                             <FormControl>
                                 <Input
-                                    placeholder="category name here..."
+                                    placeholder="product name here..."
                                     {...field}
                                 />
                             </FormControl>
                             <FormDescription>
-                                This is what your Category shall be named
+                                This is what your Product shall be named
                             </FormDescription>
                             <FormMessage />
                         </FormItem>

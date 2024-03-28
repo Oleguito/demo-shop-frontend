@@ -1,23 +1,58 @@
 {
-	"users": [
-		{
-			"id": 8,
-			"email": "tenzoriator@rambler.ru",
-			"password": 123456789,
-			"login": "Oleguito",
-			"accountType": "ADMIN"
-		},
-		{
-			"id": 9,
-			"email": "tenzoriator@gmail.ru",
-			"password": 123456789,
-			"login": "Oleguote",
-			"accountType": "USER"
-		}
-	],
-	"categories": [
-		{"id":1,"title":"Foods"},
-		{"id":2,"title":"Services"},
-		{"id":3,"title":"Tools"}
-	]
+    "users": [
+        {
+            "id": 8,
+            "email": "tenzoriator@rambler.ru",
+            "password": 123456789,
+            "login": "Oleguito",
+            "accountType": "ADMIN"
+        },
+        {
+            "id": 9,
+            "email": "tenzoriator@gmail.ru",
+            "password": 123456789,
+            "login": "Oleguote",
+            "accountType": "USER"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "title": "Foods"
+        },
+        {
+            "id": 2,
+            "title": "Services"
+        },
+        {
+            "id": 3,
+            "title": "Tools"
+        }
+    ],
+    "products/all": [
+        {
+            "id": 1,
+            "title": "Bread",
+            "category": {
+                "id": 1,
+                "title": "Foods"
+            }
+        },
+        {
+            "id": 2,
+            "title": "Hammer",
+            "category": {
+                "id": 3,
+                "title": "Tools"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Escort",
+            "category": {
+                "id": 2,
+                "title": "Services"
+            }
+        }
+    ]
 }

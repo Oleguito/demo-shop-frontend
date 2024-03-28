@@ -31,6 +31,8 @@ import CategoriesTable from "@/app/(pages)/tables/CategoriesTable.tsx";
 import CreateCategoryButton from "@/app/components/CreateCategoryButton.tsx";
 import UsersTable from "@/app/(pages)/tables/UsersTable.tsx";
 import CreateUserButton from "@/app/components/CreateUserButton.tsx";
+import CreateProductButton from "@/app/components/CreateProductButton.tsx";
+import ProductsTable from "@/app/(pages)/tables/ProductsTable.tsx";
 
 const AdminProfilePage = () => {
     const { userIsLoggedIn } = useContext(GlobalContext);
@@ -72,6 +74,8 @@ const AdminProfilePage = () => {
                     </TabsContent>
                     <TabsContent value="products">
                         <p>Products stuff here</p>
+                        <CreateProductButton />
+                        <ProductsTable />
                     </TabsContent>
                     <TabsContent value="purchases">
                         <p>Purchases stuff here</p>

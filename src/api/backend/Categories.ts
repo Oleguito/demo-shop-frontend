@@ -11,3 +11,15 @@ export const getAllCategories = () => {
         });
     return response;
 }
+
+export const postOneCategory = (categoryCommand: {categoryName: string}) => {
+    let categoryResponse = {} as CategoryResponse;
+    const response = axios
+        .post(backend.categoriesPostOne, {
+            title: categoryCommand.categoryName
+        })
+        .then((response) => {
+            categoryResponse = response.data;
+        })
+    return categoryResponse;
+}

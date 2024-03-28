@@ -4,7 +4,7 @@ export const backend = {
     addUser: backendServerUrl + '/users/add',
     register: backendServerUrl + '/register',
 
-    categoriesPost: backendServerUrl + '/categories/add',
+    categoriesPostOne: backendServerUrl + '/categories/add',
     categoriesAddProductTo: backendServerUrl + '/categories/add-product',
     categories: backendServerUrl + '/categories',
     categoriesGetAll: backendServerUrl + '/categories',
