@@ -56,7 +56,7 @@ export function RegistrationPage() {
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-8 w-[33%]"
+                className="space-y-8 w-[50%] mt-[100px]"
             >
                 <FormField
                     control={form.control}
@@ -116,7 +116,7 @@ export function RegistrationPage() {
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Submit</Button>
+                <Button type="submit" className={"bg-white"}>Submit</Button>
             </form>
         </Form>
     );
