@@ -14,6 +14,8 @@ import {
     useReactTable,
 } from "@tanstack/react-table"
 import {UserQuery} from "@/types/user/user.types.ts";
+import {IoTrashBinOutline} from "react-icons/io5";
+import {GrEdit} from "react-icons/gr";
 
 export const columnsUsers: ColumnDef<UserQuery>[] = [
     {
@@ -91,4 +93,34 @@ export const columnsUsers: ColumnDef<UserQuery>[] = [
             )
         },
     },
+    {
+        accessorKey: "delete",
+        header: ({column}) => {
+            return (
+                <>Delete</>
+            )
+        },
+        cell: ({row}) => (
+            <Button onClick={() => {
+                console.log("deleting user...");
+            }}>
+                <IoTrashBinOutline />
+            </Button>
+        )
+    },
+    {
+        accessorKey: "edit",
+        header: ({column}) => {
+            return (
+                <>Edit</>
+            )
+        },
+        cell: ({row}) => (
+            <Button onClick={() => {
+                console.log("editing user...");
+            }}>
+                <GrEdit />
+            </Button>
+        )
+    }
 ]
