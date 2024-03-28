@@ -1,7 +1,7 @@
 import React from "react";
 
 export function MainLayout() {
-    return <section className="h-[100vh] mx-[15%]">
+    return <section className="h-[100vh] mx-[15%] mainLayoutSection">
         <h1>Products by categories</h1>
         <h2>Category 1</h2>
         <div className="productInCategoryContainer">
