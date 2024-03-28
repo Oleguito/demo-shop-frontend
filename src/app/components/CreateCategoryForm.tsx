@@ -70,7 +70,7 @@ function ThisForm() {
     );
 }
 
-const CreateOrUpdateCategoryForm = () => {
+const CreateCategoryForm = () => {
     return (
         <>
             <div className={'mt-[10%] w-[75%] mx-[10%]'}>
@@ -79,4 +79,4 @@ const CreateOrUpdateCategoryForm = () => {
         </>
     );
 };
-export default CreateOrUpdateCategoryForm;
+export default CreateCategoryForm;

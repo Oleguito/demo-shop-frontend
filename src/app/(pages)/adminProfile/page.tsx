@@ -30,6 +30,7 @@ import UsersAccordion from '@/app/components/accordions/UsersAccordion.tsx';
 import CategoriesTable from "@/app/(pages)/tables/CategoriesTable.tsx";
 import CreateCategoryButton from "@/app/components/CreateCategoryButton.tsx";
 import UsersTable from "@/app/(pages)/tables/UsersTable.tsx";
+import CreateUserButton from "@/app/components/CreateUserButton.tsx";
 
 const AdminProfilePage = () => {
     const { userIsLoggedIn } = useContext(GlobalContext);
@@ -62,8 +63,11 @@ const AdminProfilePage = () => {
                         </div>
                     </TabsContent>
                     <TabsContent value="users">
+                        <div className="mx-[10%] flex justify-center flex-col gap-3">
                         <p>Users stuff here</p>
+                        <CreateUserButton />
                         <UsersTable />
+                        </div>
                     </TabsContent>
                     <TabsContent value="products">
                         <p>Products stuff here</p>

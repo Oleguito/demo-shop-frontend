@@ -22,7 +22,7 @@ const UsersTable = () => {
 
     return (
         <>
-            <div className="mx-[10%]">
+            <div>
                 <DataTable columns={columnsUsers} data={users} />
             </div>
         </>
