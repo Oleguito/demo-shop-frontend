@@ -14,6 +14,7 @@ import {
     useReactTable,
 } from "@tanstack/react-table";
 import { IoTrashBinOutline } from "react-icons/io5";
+import { GrEdit } from "react-icons/gr";
 
 export const columnsCategories: ColumnDef<CategoryResponse>[] = [
     {
@@ -56,6 +57,19 @@ export const columnsCategories: ColumnDef<CategoryResponse>[] = [
         cell: ({row}) => (
             <Button>
                 <IoTrashBinOutline />
+            </Button>
+        )
+    },
+    {
+        accessorKey: "edit",
+        header: ({column}) => {
+            return (
+                <>Edit</>
+            )
+        },
+        cell: ({row}) => (
+            <Button>
+                <GrEdit />
             </Button>
         )
     }
