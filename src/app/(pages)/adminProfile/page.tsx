@@ -51,6 +51,7 @@ const AdminProfilePage = () => {
                         <TabsTrigger value="categories">Categories</TabsTrigger>
                         <TabsTrigger value="users">Users</TabsTrigger>
                         <TabsTrigger value="products">Products</TabsTrigger>
+                        <TabsTrigger value="purchases">Purchases</TabsTrigger>
                         <TabsTrigger value="product-bin">
                             Product bin
                         </TabsTrigger>
@@ -71,6 +72,9 @@ const AdminProfilePage = () => {
                     </TabsContent>
                     <TabsContent value="products">
                         <p>Products stuff here</p>
+                    </TabsContent>
+                    <TabsContent value="purchases">
+                        <p>Purchases stuff here</p>
                     </TabsContent>
                     <TabsContent value="product-bin">
                         <p>Product bin stuff here</p>
