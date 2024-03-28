@@ -1,4 +1,3 @@
-'use client'
 import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
@@ -11,7 +10,7 @@ import {
   useFormContext,
 } from "react-hook-form"
 
-import { concatTailwindClasses } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
 
 const Form = FormProvider
@@ -79,7 +78,7 @@ const FormItem = React.forwardRef<
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div ref={ref} className={concatTailwindClasses("space-y-2", className)} {...props} />
+      <div ref={ref} className={cn("space-y-2", className)} {...props} />
     </FormItemContext.Provider>
   )
 })
@@ -94,7 +93,7 @@ const FormLabel = React.forwardRef<
   return (
     <Label
       ref={ref}
-      className={concatTailwindClasses(error && "text-destructive", className)}
+      className={cn(error && "text-red-500 dark:text-red-900", className)}
       htmlFor={formItemId}
       {...props}
     />
@@ -134,7 +133,7 @@ const FormDescription = React.forwardRef<
     <p
       ref={ref}
       id={formDescriptionId}
-      className={concatTailwindClasses("text-sm text-muted-foreground", className)}
+      className={cn("text-sm text-stone-500 dark:text-stone-400", className)}
       {...props}
     />
   )
@@ -156,7 +155,7 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={concatTailwindClasses("text-sm font-medium text-destructive", className)}
+      className={cn("text-sm font-medium text-red-500 dark:text-red-900", className)}
       {...props}
     >
       {body}
