@@ -1,11 +1,11 @@
-"use client"
+'use client';
 
-import React from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import React from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
     Form,
     FormControl,
@@ -14,14 +14,14 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 
+import { registerUser } from '@/api/backend/Register.ts';
 import {
     RegisterCredentials,
     RegisterResponse,
-    registerUser,
-} from "@/api/backend/Register.ts";
+} from '@/types/user/user.types.ts';
 
 const formSchema = z.object({
     username: z.string().min(2).max(50),
@@ -34,9 +34,9 @@ export function RegistrationPage() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: "",
-            password: "",
-            email: "",
+            username: '',
+            password: '',
+            email: '',
         },
     });
 
@@ -116,7 +116,9 @@ export function RegistrationPage() {
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className={"bg-white"}>Submit</Button>
+                <Button type="submit" className={'bg-white'}>
+                    Submit
+                </Button>
             </form>
         </Form>
     );
