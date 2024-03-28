@@ -28,6 +28,7 @@ import { getAllUsers } from '@/api/backend/Users.ts';
 import CategoriesAccordion from '@/app/components/accordions/CategoriesAccordion.tsx';
 import UsersAccordion from '@/app/components/accordions/UsersAccordion.tsx';
 import CategoriesTable from "@/app/(pages)/tables/CategoriesTable.tsx";
+import CreateCategoryButton from "@/app/components/CreateCategoryButton.tsx";
 
 const AdminProfilePage = () => {
     const { userIsLoggedIn } = useContext(GlobalContext);
@@ -53,8 +54,11 @@ const AdminProfilePage = () => {
                         </TabsTrigger>
                     </TabsList>
                     <TabsContent value="categories">
-                        <p>Categories stuff here</p>
-                        <CategoriesTable/>
+                        <div className="mx-[10%] flex justify-center flex-col gap-3">
+                            <p>Categories stuff here</p>
+                            <CreateCategoryButton />
+                            <CategoriesTable/>
+                        </div>
                     </TabsContent>
                     <TabsContent value="users">
                         <p>Users stuff here</p>
