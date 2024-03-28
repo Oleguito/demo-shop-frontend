@@ -60,7 +60,7 @@ function ThisForm() {
                 />
                 <Button
                     type="submit"
-                    className={'bg-amber-100 hover:text-amber-100'}
+                    className={'bg-white hover:text-amber-100'}
                 >
                     Submit
                 </Button>
