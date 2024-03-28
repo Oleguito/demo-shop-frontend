@@ -42,7 +42,7 @@ const AdminProfilePage = () => {
     return (
         userIsLoggedIn && (
             <>
-                <div className="text-4xl flex justify-center items-center">
+                <div className="text-4xl flex justify-center items-center mt-[10%] text-blue-100">
                     <span className="text-center">AdminProfilePage</span>
                 </div>
                 <div className="flex flex-row">
@@ -50,7 +50,7 @@ const AdminProfilePage = () => {
                     <div className="w-[70%]"></div>
                 </div>
                 <DebugComponent />
-                <Tabs defaultValue="categories" className="w-[100vw] flex-col">
+                <Tabs defaultValue="categories" className="w-[100vw] flex-col text-amber-100 mx-[10%] mt-8">
                     <TabsList>
                         <TabsTrigger value="categories">Categories</TabsTrigger>
                         <TabsTrigger value="users">Users</TabsTrigger>
