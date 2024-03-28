@@ -22,7 +22,7 @@ export function Header() {
     }, [])
 
     return (
-        <header className="flex justify-between mx-[15%]">
+        <header className="flex justify-between mx-[15%] mt-[1.5rem]">
             <Logo/>
             <SearchBar/>
             {isClient && userIsLoggedIn ? <ProfileButton /> : <LoginButton /> }

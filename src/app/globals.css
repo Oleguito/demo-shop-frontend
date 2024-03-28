@@ -118,6 +118,8 @@ button:hover {
 }
 .productInCategory:hover {
     background-color: #666;
+    animation-name: small-increase-scale;
+    animation-duration: 1s;
 }
 
 section > h1 {
@@ -161,4 +163,13 @@ section > h1 {
 .mainLayoutSection {
     margin-top: 7%;
     color: white;
+}
+
+@keyframes small-increase-scale {
+    0% {
+        transform: scale(100%, 100%);
+    }
+    100% {
+        transform: scale(105%, 105%);
+    }
 }
