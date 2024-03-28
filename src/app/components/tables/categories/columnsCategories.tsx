@@ -15,6 +15,7 @@ import {
 } from "@tanstack/react-table";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { GrEdit } from "react-icons/gr";
+import Router from 'next/router'
 
 export const columnsCategories: ColumnDef<CategoryResponse>[] = [
     {
