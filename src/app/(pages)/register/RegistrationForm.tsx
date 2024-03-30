@@ -41,6 +41,7 @@ export function RegistrationPage() {
             username: '',
             password: '',
             email: '',
+
         },
     });
 
@@ -57,6 +58,7 @@ export function RegistrationPage() {
         });
 
         console.log(returned);
+        alert("gratz you can now log in using your credentials");
 
         router.push("/")
     }

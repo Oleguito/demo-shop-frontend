@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, {useState} from 'react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -15,11 +15,21 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import {registerUser} from "@/api/backend/Register.ts";
+import {returnBy} from "@/types/accountTypes/AccountTypes.ts";
 
 const formSchema = z.object({
     login: z.string().min(2).max(50),
     password: z.string().min(3),
-    email: z.string().email()
+    email: z.string().email(),
+    accountType: z.string()
     // id: number;
     // login: string;
     // email: string;
@@ -28,6 +38,10 @@ const formSchema = z.object({
 });
 
 function ThisForm() {
+
+    const [accountType, setAccountType] = useState("");
+
+
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -35,15 +49,27 @@ function ThisForm() {
             login: '',
             password: '',
             email: '',
+            accountType: 'USER'
         },
     });
 
     // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.log(values);
         console.log("creating user...");
+        const returned = await registerUser({
+           login: values.login,
+           password: values.password,
+           email: values.email,
+           accountType: returnBy(accountType)
+        });
+
+        console.log("returned:");
+        console.log(returned);
+        if(returned) alert("Congratz, you have successfully created a user");
+        else {alert("Sorry, something went wrong!!")}
     }
 
     return (
@@ -101,6 +127,34 @@ function ThisForm() {
                             </FormControl>
                             <FormDescription>
                                 This is what user will use to log in
+                            </FormDescription>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="accountType"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Account type</FormLabel>
+                            <FormControl>
+
+                                <Select onValueChange={(value:string) => {
+                                    setAccountType(value);
+                                }}>
+                                    <SelectTrigger className="w-[180px]">
+                                        <SelectValue placeholder="USER" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="USER">USER</SelectItem>
+                                        <SelectItem value="ADMIN">ADMIN</SelectItem>
+                                    </SelectContent>
+                                </Select>
+
+                            </FormControl>
+                            <FormDescription>
+                                Account type for the new user
                             </FormDescription>
                             <FormMessage />
                         </FormItem>

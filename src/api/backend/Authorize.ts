@@ -31,7 +31,7 @@ export const authorizeUser = async (credentials: AuthorizeCredentials, rememberM
                 Cookies.set("currentUserId", "" + u.id);
             }
         } else {
-            alert("no such user found")
+            alert("no such user found");
         }
         return u;
     });
