@@ -8,7 +8,7 @@
 
 body {
     background: rgb(65, 52, 201);
-    background: radial-gradient(circle, rgb(121, 114, 220) 0%, rgb(144, 189, 239) 57%, rgb(163, 197, 206) 100%);
+    background: radial-gradient(circle, rgb(86, 81, 159) 0%, rgb(13, 104, 206) 57%, rgb(49, 213, 253) 100%);
 }
 
 * {
