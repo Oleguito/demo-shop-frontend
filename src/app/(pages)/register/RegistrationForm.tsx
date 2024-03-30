@@ -16,12 +16,13 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-
+import {AccountTypes} from "@/types/accountTypes/AccountTypes"
 import { registerUser } from '@/api/backend/Register.ts';
 import {
     RegisterCredentials,
     RegisterResponse,
 } from '@/types/user/user.types.ts';
+import {useRouter} from "next/navigation";
 
 const formSchema = z.object({
     username: z.string().min(2).max(50),
@@ -30,6 +31,9 @@ const formSchema = z.object({
 });
 
 export function RegistrationPage() {
+
+    const router = useRouter();
+
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -49,9 +53,12 @@ export function RegistrationPage() {
             login: values.username,
             password: values.password,
             email: values.email,
+            accountType: AccountTypes.USER,
         });
 
         console.log(returned);
+
+        router.push("/")
     }
 
     return (
