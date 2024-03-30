@@ -15,9 +15,32 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import * as categoriesApi from "@/api/backend/Categories.ts";
+import {getAllCategories} from "@/api/backend/Categories.ts";
+import {CategoryResponse} from "@/types/category/Category.ts";
+
+async function createCategoriesList() {
+    const allCategories = await getAllCategories();
+    return allCategories.map(
+        (category: CategoryResponse) => {
+            // console.log(category);
+            // return item.toString;
+            return <SelectItem key={category.id} value={category.title}>{category.title}</SelectItem>
+        },
+    );
+}
+
 
 const formSchema = z.object({
     productName: z.string().min(2).max(50),
+    categoryTitle: z.string()
 });
 
 function ThisForm() {
@@ -26,6 +49,7 @@ function ThisForm() {
         resolver: zodResolver(formSchema),
         defaultValues: {
             productName: '',
+            categoryTitle: ''
         },
     });
 
@@ -54,6 +78,29 @@ function ThisForm() {
                             </FormControl>
                             <FormDescription>
                                 This is what your Product shall be named
+                            </FormDescription>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={form.control}
+                    name="categoryTitle"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Category for your product</FormLabel>
+                            <FormControl>
+                                <Select>
+                                    <SelectTrigger className="w-[180px]">
+                                        <SelectValue placeholder="Category" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        {createCategoriesList()}
+                                    </SelectContent>
+                                </Select>
+                            </FormControl>
+                            <FormDescription>
+                                Category in which your new Product shall he listed
                             </FormDescription>
                             <FormMessage />
                         </FormItem>
