@@ -21,26 +21,26 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select"
-import * as categoriesApi from "@/api/backend/Categories.ts";
-import {getAllCategories} from "@/api/backend/Categories.ts";
-import {CategoryResponse} from "@/types/category/Category.ts";
+} from '@/components/ui/select';
+import * as categoriesApi from '@/api/backend/Categories.ts';
+import { getAllCategories } from '@/api/backend/Categories.ts';
+import { CategoryResponse } from '@/types/category/Category.ts';
 
 async function createCategoriesList() {
     const allCategories = await getAllCategories();
-    return allCategories.map(
-        (category: CategoryResponse) => {
-            // console.log(category);
-            // return item.toString;
-            return <SelectItem key={category.id} value={category.title}>{category.title}</SelectItem>
-        },
-    );
+    return allCategories.map((category: CategoryResponse) => {
+        // console.log(category);
+        return (
+            <SelectItem key={category.id} value={category.title}>
+                {category.title}
+            </SelectItem>
+        );
+    });
 }
-
 
 const formSchema = z.object({
     productName: z.string().min(2).max(50),
-    categoryTitle: z.string()
+    categoryTitle: z.string(),
 });
 
 function ThisForm() {
@@ -49,7 +49,7 @@ function ThisForm() {
         resolver: zodResolver(formSchema),
         defaultValues: {
             productName: '',
-            categoryTitle: ''
+            categoryTitle: '',
         },
     });
 
@@ -58,7 +58,7 @@ function ThisForm() {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.log(values);
-        console.log("creating product...");
+        console.log('creating product...');
     }
 
     return (
@@ -100,7 +100,8 @@ function ThisForm() {
                                 </Select>
                             </FormControl>
                             <FormDescription>
-                                Category in which your new Product shall he listed
+                                Category in which your new Product shall he
+                                listed
                             </FormDescription>
                             <FormMessage />
                         </FormItem>
