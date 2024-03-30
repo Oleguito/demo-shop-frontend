@@ -26,8 +26,12 @@ export async function getOneUser(login: string) {
 
 export const authorizeUser = async (credentials: AuthorizeCredentials, rememberMe: boolean) => {
     return getOneUser(credentials.login).then((u:UserQuery | undefined)=>{
-        if (u && rememberMe) {
-            Cookies.set("currentUserId", "" + u.id);
+        if (u) {
+            if(rememberMe) {
+                Cookies.set("currentUserId", "" + u.id);
+            }
+        } else {
+            alert("no such user found")
         }
         return u;
     });

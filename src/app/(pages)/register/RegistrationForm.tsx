@@ -41,15 +41,17 @@ export function RegistrationPage() {
     });
 
     // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
 
-        registerUser({
+        const returned = await registerUser({
             login: values.username,
             password: values.password,
             email: values.email,
         });
+
+        console.log(returned);
     }
 
     return (
@@ -90,7 +92,7 @@ export function RegistrationPage() {
                                 />
                             </FormControl>
                             <FormDescription>
-                                This is your password. Don't share it with
+                                This is your password. Don`&amp;apos`t share it with
                                 anyone.
                             </FormDescription>
                             <FormMessage />

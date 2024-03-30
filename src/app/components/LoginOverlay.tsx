@@ -55,9 +55,9 @@ const LoginOverlay: React.FC = () => {
                         <button
                             type="submit"
                             className="submitButton"
-                            onClick={(e) => {
+                            onClick={async (e) => {
                                 e.preventDefault();
-                                const authorizedUserPromise = authorizeUser(
+                                const authorizedUserPromise = await authorizeUser(
                                     {
                                         login: login,
                                         password: password,
@@ -75,7 +75,7 @@ const LoginOverlay: React.FC = () => {
                         <div className="loginFormNotRegisteredMessage">
                             <p>
                                 Not a user yet?{" "}
-                                <Link className="link" href={backend.register}>
+                                <Link className="link" href={frontend.register}>
                                     Register
                                 </Link>
                             </p>

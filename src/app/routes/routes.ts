@@ -2,7 +2,6 @@ export const backendServerUrl = "http://localhost:8080";
 export const backend = {
     backendServerUrl,
     addUser: backendServerUrl + '/users/add',
-    register: backendServerUrl + '/register',
 
     categoriesPostOne: backendServerUrl + '/categories/add',
     categoriesAddProductTo: backendServerUrl + '/categories/add-product',
@@ -29,4 +28,5 @@ export const backend = {
 export const frontend = {
     adminProfilePage: "/adminProfile",
     profilePage: "/profile",
+    register: '/register',
 }
