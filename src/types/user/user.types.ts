@@ -1,4 +1,6 @@
 import {AccountTypes} from "@/types/accountTypes/AccountTypes.ts";
+import {Purchase} from "@/api/backend/Purchase.ts";
+import {ProductBin} from "@/api/backend/ProductBin.ts";
 
 export type UserQuery = {
     id: number;
@@ -6,6 +8,14 @@ export type UserQuery = {
     email: string;
     password: string;
     accountType: AccountTypes;
+}
+export type UserCommand = {
+    login: string;
+    email: string;
+    password: string;
+    accountType: AccountTypes;
+    productBin: ProductBin;
+    purchases: Purchase[];
 }
 export type RegisterCredentials = {
     login: string;

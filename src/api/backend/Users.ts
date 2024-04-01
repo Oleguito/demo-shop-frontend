@@ -1,4 +1,4 @@
-import {UserQuery} from "@/types/user/user.types.ts";
+import {UserCommand, UserQuery} from "@/types/user/user.types.ts";
 import axios, { AxiosResponse } from "axios";
 import * as constants from "@/constants/constants.ts";
 import {backend} from "@/app/routes/routes.ts";
@@ -25,6 +25,15 @@ export function getAllUsers(): Promise<UserQuery[]> {
     return axios
         .get(url)
         .then((response: AxiosResponse<UserQuery[]>) => {
+            return response.data;
+        });
+}
+
+export function modifyAUserById(id:number, userData: UserCommand) {
+    const url = `${backend.backendServerUrl}/users/${id}`;
+    return axios
+        .put(url, userData)
+        .then((response: AxiosResponse<UserQuery>) => {
             return response.data;
         });
 }

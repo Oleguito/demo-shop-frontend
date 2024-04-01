@@ -5,6 +5,7 @@ import axios from "axios";
 import {backend, frontend} from "@/app/routes/routes.ts";
 import Link from "next/link";
 import { authorizeUser } from "@/api/backend/Authorize.ts";
+import {router} from "next/client";
 
 const LoginOverlay: React.FC = () => {
 
@@ -67,6 +68,7 @@ const LoginOverlay: React.FC = () => {
                                     authorizedUser && setLoggedInUserData(authorizedUser);
                                     authorizedUser && setUserIsLoggedIn(true);
                                     authorizedUser && setLoginOverlayVisible(false);
+                                    router.push("/");
                                 });
                             }}
                         >
