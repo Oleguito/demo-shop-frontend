@@ -7,17 +7,20 @@ export const backend = {
     categoriesAddProductTo: backendServerUrl + '/categories/add-product',
     categories: backendServerUrl + '/categories',
     categoriesGetAll: backendServerUrl + '/categories',
-    categoriesGetOne: backendServerUrl + '/categories/{id}',
-    categoriesDelete: backendServerUrl + '/categories/delete/{id}',
-
-    usersGetOne: backendServerUrl + '/users/{id}',
-    usersUpdateOne: backendServerUrl + '/users/{id}',
-    usersAddProductToProductBin: backendServerUrl + '/users/{id}/product-bin-add',
-    usersAddUser: backendServerUrl + '/users/add',
-    usersGetAll: backendServerUrl + '/users',
-    usersGetProductBin: backendServerUrl + '/users/{id}/product-bin',
-    usersDeleteProductFromProductBin: backendServerUrl + '/users/{id}',
-    usersDeleteUser: backendServerUrl + '/users/delete/{id}',
+    categoriesGetOne: (id: number) => {
+        return `${backendServerUrl}/categories/{$id}`;
+    },
+    categoriesDelete: (id:number) => {
+        return `${backendServerUrl}/categories/delete/${id}`
+    },
+    usersGetOne     :(id: number) => `${backendServerUrl}/users/${id}`,
+    usersUpdateOne  :(id: number) => `${backendServerUrl}/users/${id}`,
+    usersAddProductToProductBin :(id: number) => `${backendServerUrl}/users/${id}/product-bin-add`,
+    usersAddUser :() => `${backendServerUrl}/users/add`,
+    usersGetAll :() => `${backendServerUrl}/users`,
+    usersGetProductBin :(id: number) => `${backendServerUrl}/users/${id}/product-bin`,
+    usersDeleteProductFromProductBin :(id: number) => `${backendServerUrl}/users/${id}`,
+    usersDeleteUser :(id: number) => `${backendServerUrl}/users/delete/${id}`,
 
     purchasesAddPurchase: backendServerUrl + "/purchases/add",
 

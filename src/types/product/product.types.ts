@@ -5,9 +5,19 @@ export type ProductRequest = {
     categoryTitle: string;
 }
 
+export type ProductCommand = {
+    title: string;
+    category: CategoryResponse;
+}
+
 export type ProductResponse = {
     id: number;
     title: string;
     category: CategoryResponse;
 }
 
+export type ProductQuery = {
+    id: number;
+    title: string;
+    category: CategoryResponse;
+}

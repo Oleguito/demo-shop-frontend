@@ -23,3 +23,9 @@ export const postOneCategory = (categoryCommand: {categoryName: string}) => {
         })
     return categoryResponse;
 }
+
+export const getCategoryById = (categoryId: number) => {
+    return axios.get(backend.categoriesGetOne(categoryId)).then((response) => {
+        return response.data;
+    })
+}

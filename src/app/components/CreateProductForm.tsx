@@ -25,11 +25,12 @@ import {
 import * as categoriesApi from '@/api/backend/Categories.ts';
 import { getAllCategories } from '@/api/backend/Categories.ts';
 import { CategoryResponse } from '@/types/category/Category.ts';
+import {createAProduct} from "@/api/backend/Products.ts";
 
 function convertCategoriesToReactElements(allCategories: CategoryResponse[]) {
   return allCategories.map((category: CategoryResponse) => {
     return (
-      <SelectItem key={category.id} value={category.title}>
+      <SelectItem key={category.id} value={category.id}>
         {category.title}
       </SelectItem>
     );
@@ -38,7 +39,7 @@ function convertCategoriesToReactElements(allCategories: CategoryResponse[]) {
 
 const formSchema = z.object({
   productName: z.string().min(2).max(50),
-  categoryTitle: z.string(),
+  categoryId: z.number(),
 });
 
 function ThisForm() {
@@ -56,7 +57,7 @@ function ThisForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       productName: '',
-      categoryTitle: '',
+      categoryId: '',
     },
   });
 
@@ -66,6 +67,10 @@ function ThisForm() {
     // ✅ This will be type-safe and validated.
     console.log(values);
     console.log('creating product...');
+    createAProduct({
+      title: values.productName,
+      category: getCategoryById(values.categoryId)
+    })
   }
 
   return (
