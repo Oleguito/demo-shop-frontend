@@ -16,6 +16,7 @@ import {
 import {UserQuery} from "@/types/user/user.types.ts";
 import {IoTrashBinOutline} from "react-icons/io5";
 import {GrEdit} from "react-icons/gr";
+import { deleteUserById } from '@/api/backend/Users.ts';
 
 export const columnsUsers: ColumnDef<UserQuery>[] = [
     {
@@ -103,6 +104,7 @@ export const columnsUsers: ColumnDef<UserQuery>[] = [
         cell: ({row}) => (
             <Button onClick={() => {
                 console.log("deleting user...");
+                deleteUserById(row.original.id);
             }}>
                 <IoTrashBinOutline />
             </Button>

@@ -9,6 +9,12 @@ export async function getUserById(id: number): Promise<UserQuery> {
     return response.data as UserQuery;
 }
 
+export function deleteUserById(id: number) {
+    axios.delete(backend.usersDeleteUser(id)).then(
+      r => console.log(r)
+    );
+}
+
 export function getUserByIdNotAsync(id: number | undefined): UserQuery {
     const url = `${backend.backendServerUrl}/users/${id}`;
     let result: UserQuery = {} as UserQuery;
