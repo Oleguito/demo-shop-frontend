@@ -8,11 +8,10 @@ import { usePathname } from 'next/navigation';
 const Page = (
   {params} : {params: {id: number}}
 ) => {
-  console.log(params.id);
   return (
     <>
       <h1>{params.id}</h1>
-      <ModifyCategoryForm />
+      <ModifyCategoryForm categoryId={params.id} />
     </>
   );
 };

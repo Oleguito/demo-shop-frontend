@@ -15,14 +15,18 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import {postOneCategory} from "@/api/backend/Categories.ts";
+import { modifyCategory, postOneCategory } from '@/api/backend/Categories.ts';
 import {useRouter} from "next/navigation";
+
+type Props = {
+  categoryId:number;
+}
 
 const formSchema = z.object({
     categoryName: z.string().min(2).max(50),
 });
 
-function ThisForm() {
+function ThisForm(props:Props) {
   
     const router = useRouter();
   
@@ -40,8 +44,12 @@ function ThisForm() {
         // ✅ This will be type-safe and validated.
         console.log(values);
         console.log("modifying category...");
-        
-        router.back();
+        modifyCategory(props.categoryId,{title:values.categoryName}).then(
+          data => console.log("from server", data)
+        )
+      // console.log("yesyesyesyes",props.categoryId);
+      
+      router.push("/profile");
     }
 
     return (
@@ -77,13 +85,15 @@ function ThisForm() {
     );
 }
 
-const CreateCategoryForm = () => {
-    return (
+const ModifyCategoryForm = (
+  props: Props
+) => {
+  return (
         <>
             <div className={'mt-[10%] w-[75%] mx-[10%]'}>
-                <ThisForm />
+                <ThisForm categoryId={props.categoryId} />
             </div>
         </>
     );
 };
-export default CreateCategoryForm;
+export default ModifyCategoryForm;
