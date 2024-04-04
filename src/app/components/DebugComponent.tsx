@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import {GlobalContext} from '@/app/context/GlobalContext';
 import {MainLayout} from '@/app/components/MainLayout';
 import Cookies from "js-cookie";
@@ -7,6 +7,10 @@ import * as cookies from "@/constants/cookies";
 import {getUserById, getUserByIdNotAsync} from '@/api/backend/Users.ts';
 
 const DEBUG = false;
+
+type Props = {
+    children: React.JSX.Element
+}
 
 
 function DebugStuff() {

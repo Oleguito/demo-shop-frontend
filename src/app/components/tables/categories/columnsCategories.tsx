@@ -1,7 +1,7 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
-import {CategoryResponse} from "@/types/category/Category.ts";
+import { CategoryResponse, ModifyCategoryRequest } from '@/types/category/Category.ts';
 import {Button} from "@/components/ui/button.tsx";
 import {ArrowUpDown} from "lucide-react";
 import * as React from "react"
@@ -16,6 +16,9 @@ import {
 import { IoTrashBinOutline } from "react-icons/io5";
 import { GrEdit } from "react-icons/gr";
 import Router from 'next/router'
+import { deleteCategoryById, modifyCategory } from '@/api/backend/Categories.ts';
+import { useRouter } from 'next/navigation';
+
 
 export const columnsCategories: ColumnDef<CategoryResponse>[] = [
     {
@@ -58,6 +61,7 @@ export const columnsCategories: ColumnDef<CategoryResponse>[] = [
         cell: ({row}) => (
             <Button onClick={() => {
                 console.log("deleting category...");
+                deleteCategoryById(Number(row.original.id));
             }}>
                 <IoTrashBinOutline />
             </Button>
@@ -73,6 +77,11 @@ export const columnsCategories: ColumnDef<CategoryResponse>[] = [
         cell: ({row}) => (
             <Button onClick={() => {
                 console.log("editing category...");
+                const newData = { title: "Oleguinho!!!!"};
+                console.log(newData);
+                modifyCategory(row.original.id, newData).then(
+                  r => console.log("columns response then:\n" + r)
+                )
             }}>
                 <GrEdit />
             </Button>

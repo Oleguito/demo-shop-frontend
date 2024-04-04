@@ -1,2 +1,2 @@
 git add .
-git commit -m "while it works..."
+git commit -m "It works, but I don't know why..."

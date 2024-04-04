@@ -1,6 +1,9 @@
 export type CategoryRequest = {
     title: string;
 }
+export type ModifyCategoryRequest = {
+    title: string;
+}
 
 export type CategoryResponse = {
     id: number;

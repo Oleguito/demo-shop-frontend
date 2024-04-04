@@ -12,11 +12,11 @@ export default function Home() {
     const { userIsLoggedIn } = useContext(GlobalContext);
 
     return (
-        <>
-            <main>
-                <DebugComponent />
-                <PageCarcass />
-            </main>
-        </>
+      <>
+        <main>
+          <DebugComponent />
+          <PageCarcass />
+        </main>
+      </>
     );
 }

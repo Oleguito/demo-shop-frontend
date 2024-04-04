@@ -23,14 +23,15 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import * as categoriesApi from '@/api/backend/Categories.ts';
-import { getAllCategories } from '@/api/backend/Categories.ts';
+import { getAllCategories, getCategoryById } from '@/api/backend/Categories.ts';
 import { CategoryResponse } from '@/types/category/Category.ts';
-import {createAProduct} from "@/api/backend/Products.ts";
+import { createAProduct } from '@/api/backend/Products.ts';
 
 function convertCategoriesToReactElements(allCategories: CategoryResponse[]) {
   return allCategories.map((category: CategoryResponse) => {
+    console.log(category.id);
     return (
-      <SelectItem key={category.id} value={category.id}>
+      <SelectItem key={category.id} value={category.id?.toString()}>
         {category.title}
       </SelectItem>
     );
@@ -39,7 +40,7 @@ function convertCategoriesToReactElements(allCategories: CategoryResponse[]) {
 
 const formSchema = z.object({
   productName: z.string().min(2).max(50),
-  categoryId: z.number(),
+  categoryId: z.string(),
 });
 
 function ThisForm() {
@@ -67,10 +68,12 @@ function ThisForm() {
     // ✅ This will be type-safe and validated.
     console.log(values);
     console.log('creating product...');
-    createAProduct({
-      title: values.productName,
-      category: getCategoryById(values.categoryId)
-    })
+    getCategoryById(Number(values.categoryId)).then((category) => {
+      createAProduct({
+        title: values.productName,
+        category: category,
+      });
+    });
   }
 
   return (
@@ -94,7 +97,7 @@ function ThisForm() {
         />
         <FormField
           control={form.control}
-          name="categoryTitle"
+          name="categoryId"
           render={({ field }) => (
             <FormItem>
               <FormLabel>
@@ -106,7 +109,19 @@ function ThisForm() {
                     <SelectValue placeholder="Category" />
                   </SelectTrigger>
                   <SelectContent>
-                    {convertCategoriesToReactElements(allCategories)}
+                    {allCategories.map((category) => {
+                      return (
+                        <SelectItem
+                          key={category.id}
+                          value={category?.id?.toString()}
+                        >
+                          {category.title}
+                        </SelectItem>
+                      );
+                    })}
+                    {/*{<SelectItem value={'One'}>One</SelectItem>}*/}
+                    {/*{<SelectItem value={'Two'}>Two</SelectItem>}*/}
+                    {/*{<SelectItem value={'Three'}>Three</SelectItem>}*/}
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -135,3 +150,4 @@ const CreateCategoryForm = () => {
   );
 };
 export default CreateCategoryForm;
+

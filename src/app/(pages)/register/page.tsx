@@ -10,7 +10,7 @@ const RegistrationPage = () => {
 
     useEffect(() => {
         setLoginOverlayVisible(false);
-    }, []);
+    }, [setLoginOverlayVisible]);
 
     return (
         <div className="authorizationFormContainer">

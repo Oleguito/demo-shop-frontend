@@ -18,7 +18,7 @@ export const getAllProducts = () => {
 
 export function createAProduct(newProduct: ProductCommand) {
   return axios
-    .put(backend.productsAddProduct, newProduct)
+    .post(backend.productsAddProduct, newProduct)
     .then((response) => {
       return response.data;
   })

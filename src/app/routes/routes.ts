@@ -7,11 +7,18 @@ export const backend = {
     categoriesAddProductTo: backendServerUrl + '/categories/add-product',
     categories: backendServerUrl + '/categories',
     categoriesGetAll: backendServerUrl + '/categories',
-    categoriesGetOne: (id: number) => {
-        return `${backendServerUrl}/categories/{$id}`;
+  
+  categoriesModifyById: (id: number) => {
+    return `${backendServerUrl}/categories/modify/${id}`;
+  },
+  categoriesGetOne: (id: number) => {
+        return `${backendServerUrl}/categories/${id}`;
     },
-    categoriesDelete: (id:number) => {
-        return `${backendServerUrl}/categories/delete/${id}`
+    categoriesDeleteById: (id:number) => {
+        return `${backendServerUrl}/categories/${id}`
+    },
+    categoriesDeleteByTitle: (title:string) => {
+        return `${backendServerUrl}/categories/${title}`
     },
     usersGetOne     :(id: number) => `${backendServerUrl}/users/${id}`,
     usersUpdateOne  :(id: number) => `${backendServerUrl}/users/${id}`,

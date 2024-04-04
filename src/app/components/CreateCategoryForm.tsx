@@ -16,12 +16,16 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import {postOneCategory} from "@/api/backend/Categories.ts";
+import {useRouter} from "next/navigation";
 
 const formSchema = z.object({
     categoryName: z.string().min(2).max(50),
 });
 
 function ThisForm() {
+  
+    const router = useRouter();
+  
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -37,6 +41,7 @@ function ThisForm() {
         console.log(values);
         console.log("creating category...");
         postOneCategory(values)
+        router.back();
     }
 
     return (

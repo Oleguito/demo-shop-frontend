@@ -1,4 +1,4 @@
-import {CategoryResponse} from "@/types/category/Category.ts";
+import { CategoryResponse, ModifyCategoryRequest } from '@/types/category/Category.ts';
 import axios from "axios";
 import {frontend, backend} from "@/app/routes/routes.ts"
 
@@ -28,4 +28,16 @@ export const getCategoryById = (categoryId: number) => {
     return axios.get(backend.categoriesGetOne(categoryId)).then((response) => {
         return response.data;
     })
+}
+
+export function deleteCategoryById(id: number) {
+    axios.delete(backend.categoriesDeleteById(id));
+}
+
+export function modifyCategory(categoryToModifyId:number, newData: ModifyCategoryRequest) {
+    return axios.put(backend.categoriesModifyById(categoryToModifyId), newData).then(
+      response => response.data
+    ).catch(
+      error => console.log(error)
+    )
 }

@@ -5,7 +5,7 @@ import axios from "axios";
 import {backend, frontend} from "@/app/routes/routes.ts";
 import Link from "next/link";
 import { authorizeUser } from "@/api/backend/Authorize.ts";
-import {router} from "next/client";
+import {useRouter} from "next/navigation";
 
 const LoginOverlay: React.FC = () => {
 
@@ -16,7 +16,9 @@ const LoginOverlay: React.FC = () => {
     const [login, setLogin] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [rememberMe, setRememberMe] = React.useState(false);
-
+    
+    const router = useRouter();
+    
     return (
         loginOverlayVisible && (
             <div className="overlay">

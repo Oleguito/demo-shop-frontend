@@ -67,7 +67,7 @@ export const GlobalContextProvider = ({children}:GlobalContextProviderProps) => 
                 setLoggedInUserData(user);
             })
         }
-    }, [])
+    }, [currentUserFromCookies])
 
     return (
         <GlobalContext.Provider value={{
