@@ -1,17 +1,26 @@
 'use client';
 
-import React from 'react';
-import { Header } from '@/app/components/Header';
+import React, { useContext } from 'react';
 import DebugComponent from '@/app/components/DebugComponent';
-import { GlobalContextProvider } from '@/app/context/GlobalContext';
-import LoginOverlay from '@/app/components/LoginOverlay.tsx';
+import { GlobalContext } from '@/app/context/GlobalContext';
+import { AccountTypes } from '@/types/accountTypes/AccountTypes.ts';
+import AdminProfilePage from '@/app/(pages)/adminProfile/page.tsx';
 
 const ProfilePage = () => {
-    return (
-        <>
-            <div>ProfilePage</div>
-            <DebugComponent />
-        </>
-    );
+  const context = useContext(GlobalContext);
+
+  return (
+    <>
+      {(context.loggedInUserData.accountType === AccountTypes.ADMIN) &&
+        <AdminProfilePage />
+      }
+      {(context.loggedInUserData.accountType === AccountTypes.USER) &&
+        <ProfilePage />
+      }
+
+      <div>ProfilePage</div>
+      <DebugComponent />
+    </>
+  );
 };
 export default ProfilePage;

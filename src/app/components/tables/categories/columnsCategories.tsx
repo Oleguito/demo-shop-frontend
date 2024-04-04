@@ -76,7 +76,7 @@ export const columnsCategories: ColumnDef<CategoryResponse>[] = [
             )
         },
         cell: ({row}) => (
-            <Link href={"categories/modify"}>
+            <Link href={"categories/modify/"+row.original.id}>
                 <GrEdit />
             </Link>
         )
