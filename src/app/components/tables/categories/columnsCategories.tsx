@@ -18,6 +18,7 @@ import { GrEdit } from "react-icons/gr";
 import Router from 'next/router'
 import { deleteCategoryById, modifyCategory } from '@/api/backend/Categories.ts';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 
 export const columnsCategories: ColumnDef<CategoryResponse>[] = [
@@ -75,16 +76,9 @@ export const columnsCategories: ColumnDef<CategoryResponse>[] = [
             )
         },
         cell: ({row}) => (
-            <Button onClick={() => {
-                console.log("editing category...");
-                const newData = { title: "Oleguinho!!!!"};
-                console.log(newData);
-                modifyCategory(row.original.id, newData).then(
-                  r => console.log("columns response then:\n" + r)
-                )
-            }}>
+            <Link href={"categories/modify"}>
                 <GrEdit />
-            </Button>
+            </Link>
         )
     }
 ]
