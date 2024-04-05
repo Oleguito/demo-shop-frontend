@@ -22,11 +22,13 @@ export const backend = {
     },
     usersGetOne     :(id: number) => `${backendServerUrl}/users/${id}`,
     usersUpdateOne  :(id: number) => `${backendServerUrl}/users/${id}`,
-    usersAddProductToProductBin :(id: number) => `${backendServerUrl}/users/${id}/product-bin-add`,
+    usersAddProductToProductBin :(id: number) => `${backendServerUrl}/users/${id}/product-bin/add`,
     usersAddUser :() => `${backendServerUrl}/users/add`,
     usersGetAll :() => `${backendServerUrl}/users`,
     usersGetProductBin :(id: number) => `${backendServerUrl}/users/${id}/product-bin`,
-    usersDeleteProductFromProductBin :(id: number) => `${backendServerUrl}/users/${id}`,
+    usersDeleteProductFromProductBin :(userId: number, productId: number) => {
+      return `${backendServerUrl}/users/${userId}/product-bin/delete/${productId}`
+    },
     usersDeleteUser :(id: number) => `${backendServerUrl}/users/delete/${id}`,
 
     purchasesAddPurchase: backendServerUrl + "/purchases/add",

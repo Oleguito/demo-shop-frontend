@@ -112,12 +112,12 @@ button:hover {
 
 .productInCategory {
     margin: 1rem;
-    width:8rem;
-    height:5rem;
+    width:13rem;
+    /*height:8rem;*/
     background-color: #efefef;
 }
 .productInCategory:hover {
-    background-color: #666;
+    background-color: #dbf0ff;
     animation-name: small-increase-scale;
     animation-duration: 1s;
     animation-delay: 250ms;

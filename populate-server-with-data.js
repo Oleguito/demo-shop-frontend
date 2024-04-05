@@ -27,19 +27,74 @@ const categoryEqipment = {
     title: "Eqipment"
 }
 
+// post(`${backendServerUrl}/users/add`, createAdminUser);
+// post(`${backendServerUrl}/users/add`, createNormalUser);
+// post(`${backendServerUrl}/categories/add`, categoryFoods);
+// post(`${backendServerUrl}/categories/add`, categoryServices);
+// post(`${backendServerUrl}/categories/add`, categoryEqipment);
+// post(`${backendServerUrl}/categories/add`, categoryTools);
 
+axios.get(`${backendServerUrl}/categories`).then(data => {
+    const catFoods = data.data.find(item => {return item.title === categoryFoods.title})
+    const catServices = data.data.find(item => {return item.title === categoryServices.title})
+    const catEquipment = data.data.find(item => {return item.title === categoryEquipment.title})
+    const catTools = data.data.find(item => {return item.title === categoryTools.title})
 
-post(`${backendServerUrl}/users/add`, createAdminUser);
-post(`${backendServerUrl}/users/add`, createNormalUser);
-post(`${backendServerUrl}/categories/add`, categoryFoods);
-post(`${backendServerUrl}/categories/add`, categoryServices);
-post(`${backendServerUrl}/categories/add`, categoryEqipment);
-post(`${backendServerUrl}/categories/add`, categoryTools);
+    post(`${backendServerUrl}/products/add`, {
+        title: "Bread",
+        category: catFoods });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Pepperoni Pizza",
+        category: catFoods });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Sausages",
+        category: catFoods });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Corn",
+        category: catFoods });
+
+    post(`${backendServerUrl}/products/add`, {
+        title: "Hammer",
+        category: catTools });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Nails",
+        category: catTools });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Pliers",
+        category: catTools });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Saw",
+        category: catTools });
+
+    post(`${backendServerUrl}/products/add`, {
+        title: "Escort",
+        category: catServices });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Handyman for an hour",
+        category: catServices });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Handyman for an hour",
+        category: catServices });
+
+    post(`${backendServerUrl}/products/add`, {
+        title: "Gaming steering wheel",
+        category: catEquipment });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Spacesuit",
+        category: catEquipment });
+    post(`${backendServerUrl}/products/add`, {
+        title: "TV",
+        category: catEquipment });
+    post(`${backendServerUrl}/products/add`, {
+        title: "Time machine",
+        category: catEquipment });
+});
+
 
 function post(where, what) {
     axios.post(where, what)
         .then(response => {
-            console.log(response.data);
+            console.log("post response:", response.data);
         })
         .catch(error => {
             console.error(error);
