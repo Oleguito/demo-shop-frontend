@@ -19,6 +19,7 @@ import Router from 'next/router'
 import { deleteCategoryById, modifyCategory } from '@/api/backend/Categories.ts';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { frontend } from '@/app/routes/routes.ts';
 
 
 export const columnsCategories: ColumnDef<CategoryResponse>[] = [
@@ -76,7 +77,7 @@ export const columnsCategories: ColumnDef<CategoryResponse>[] = [
             )
         },
         cell: ({row}) => (
-            <Link href={"categories/modify/"+row.original.id}>
+            <Link href={frontend.updateCategory(row.original.id)}>
                 <GrEdit />
             </Link>
         )

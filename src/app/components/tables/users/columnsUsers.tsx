@@ -17,6 +17,8 @@ import {UserQuery} from "@/types/user/user.types.ts";
 import {IoTrashBinOutline} from "react-icons/io5";
 import {GrEdit} from "react-icons/gr";
 import { deleteUserById } from '@/api/backend/Users.ts';
+import Link from 'next/link';
+import { frontend } from '@/app/routes/routes.ts';
 
 export const columnsUsers: ColumnDef<UserQuery>[] = [
     {
@@ -118,11 +120,11 @@ export const columnsUsers: ColumnDef<UserQuery>[] = [
             )
         },
         cell: ({row}) => (
-            <Button onClick={() => {
-                console.log("editing user...");
+            <Link href={frontend.updateUser(row.original.id)} onClick={() => {
+                console.log("Redirecting to edit user...");
             }}>
                 <GrEdit />
-            </Button>
+            </Link>
         )
     }
 ]

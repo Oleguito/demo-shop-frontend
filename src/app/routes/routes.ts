@@ -39,4 +39,10 @@ export const frontend = {
     adminProfilePage: "/adminProfile",
     profilePage: "/profile",
     register: '/register',
+    updateCategory: (id: number) => {
+      return `'/categories/update/'${id}`;
+    },
+    updateUser: (id: number) => {
+      return `/users/update/${id}`;
+    }
 }
