@@ -34,6 +34,7 @@ import CreateUserButton from '@/app/components/CreateUserButton.tsx';
 import CreateProductButton from '@/app/components/CreateProductButton.tsx';
 import ProductsTable from '@/app/(pages)/tables/ProductsTable.tsx';
 import { CiSquareRemove } from 'react-icons/ci';
+import ProductsInProductsBinTable from '@/app/(pages)/tables/ProductsInProductsBinTable.tsx';
 
 const AdminProfilePage = () => {
   const { userIsLoggedIn, loggedInUserData } = useContext(GlobalContext);
@@ -88,31 +89,7 @@ const AdminProfilePage = () => {
           </TabsContent>
           <TabsContent value="product-bin">
             <p>Product bin stuff here</p>
-            <p>Items in your product bin:</p>
-            {loggedInUserData.productBin?.items.length
-              ? loggedInUserData.productBin.items.map((item) => {
-                  return (
-                    <>
-                      <span className={"flex justify-center items-center border-2 border-amber-100"}>
-                        item: {item.title}{'   '}
-                        id: {item.id}{'   '}
-                        category: {item.category.title}{'   '}
-                        <Button
-                          onClick={() => {
-                            console.log('removing item fromm players product bin...');
-                            removeProductFromCurrentUsersProductBin(
-                              loggedInUserData.id,
-                              item.id
-                            )
-                          }}
-                        >
-                          <CiSquareRemove className={"size-10"} />
-                        </Button>
-                      </span>
-                    </>
-                  );
-                })
-              : 'Empty'}
+            <ProductsInProductsBinTable />
           </TabsContent>
         </Tabs>
       </>
