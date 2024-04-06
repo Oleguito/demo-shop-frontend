@@ -3,6 +3,7 @@ import axios, { AxiosResponse } from "axios";
 import * as constants from "@/constants/constants.ts";
 import {backend} from "@/app/routes/routes.ts";
 import { ProductQuery } from '@/types/product/product.types.ts';
+import { toast } from 'sonner';
 
 export async function getUserById(id: number): Promise<UserQuery> {
     const url = `${backend.backendServerUrl}/users/${id}`;
@@ -56,4 +57,8 @@ export function putProductInCurrentUsersProductBin(userId : number, product: Pro
 export function removeProductFromCurrentUsersProductBin(userId: number, productId: number) {
     return axios
       .delete(backend.usersDeleteProductFromProductBin(userId, productId))
+      .then(r => {
+            toast("Successfully deleted! Please refresh the page ;)");
+        }
+      )
 }

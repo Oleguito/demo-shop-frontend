@@ -14,6 +14,8 @@ import { GlobalContext } from '@/app/context/GlobalContext.tsx';
 import Cookies from "js-cookie";
 import * as cookies from "@/constants/cookies.ts"
 import {UserQuery} from "@/types/user/user.types.ts";
+import { Toaster } from "@/components/ui/sonner"
+import { toast } from "sonner"
 
 export default function ProfileButton() {
     const router = useRouter();
@@ -36,6 +38,14 @@ export default function ProfileButton() {
                 <DropdownMenuContent>
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                        onClick={() => {
+                            console.log('redirecting to home page...');
+                            router.push("/");
+                        }}
+                    >
+                        Home
+                    </DropdownMenuItem>
                     <DropdownMenuItem
                         onClick={() => {
                             router.push(

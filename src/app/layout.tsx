@@ -5,6 +5,7 @@ import { GlobalContextProvider } from '@/app/context/GlobalContext';
 import React, { ReactNode } from 'react';
 import { Header } from '@/app/components/Header';
 import LoginOverlay from '@/app/components/LoginOverlay.tsx';
+import { Toaster } from '@/components/ui/sonner.tsx';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
                     <Header />
                     {children}
                 </GlobalContextProvider>
+                <Toaster className={"text-4xl"} />
             </body>
         </html>
     );

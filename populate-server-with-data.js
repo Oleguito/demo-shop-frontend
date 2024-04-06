@@ -23,7 +23,7 @@ const categoryServices = {
 const categoryTools = {
     title: "Tools"
 }
-const categoryEqipment = {
+const categoryEquipment = {
     title: "Eqipment"
 }
 
@@ -35,46 +35,33 @@ const categoryEqipment = {
 // post(`${backendServerUrl}/categories/add`, categoryTools);
 
 axios.get(`${backendServerUrl}/categories`).then(data => {
-    const catFoods = data.data.find(item => {return item.title === categoryFoods.title})
-    const catServices = data.data.find(item => {return item.title === categoryServices.title})
-    const catEquipment = data.data.find(item => {return item.title === categoryEquipment.title})
-    const catTools = data.data.find(item => {return item.title === categoryTools.title})
+    const catFoods = data.data.find(item => {return item.id === categoryFoods.id})
+    const catServices = data.data.find(item => {return item.id === categoryServices.id})
+    const catEquipment = data.data.find(item => {return item.id === categoryEquipment.id})
+    const catTools = data.data.find(item => {return item.id === categoryTools.id})
 
-    post(`${backendServerUrl}/products/add`, {
-        title: "Bread",
-        category: catFoods });
-    post(`${backendServerUrl}/products/add`, {
-        title: "Pepperoni Pizza",
-        category: catFoods });
-    post(`${backendServerUrl}/products/add`, {
-        title: "Sausages",
-        category: catFoods });
-    post(`${backendServerUrl}/products/add`, {
-        title: "Corn",
-        category: catFoods });
-
-    post(`${backendServerUrl}/products/add`, {
-        title: "Hammer",
-        category: catTools });
-    post(`${backendServerUrl}/products/add`, {
-        title: "Nails",
-        category: catTools });
-    post(`${backendServerUrl}/products/add`, {
-        title: "Pliers",
-        category: catTools });
-    post(`${backendServerUrl}/products/add`, {
-        title: "Saw",
-        category: catTools });
-
-    post(`${backendServerUrl}/products/add`, {
-        title: "Escort",
-        category: catServices });
-    post(`${backendServerUrl}/products/add`, {
-        title: "Handyman for an hour",
-        category: catServices });
-    post(`${backendServerUrl}/products/add`, {
-        title: "Handyman for an hour",
-        category: catServices });
+    // post(`${backendServerUrl}/products/add`, {
+    //     title: "Hammer",
+    //     category: catTools });
+    // post(`${backendServerUrl}/products/add`, {
+    //     title: "Nails",
+    //     category: catTools });
+    // post(`${backendServerUrl}/products/add`, {
+    //     title: "Pliers",
+    //     category: catTools });
+    // post(`${backendServerUrl}/products/add`, {
+    //     title: "Saw",
+    //     category: catTools });
+    //
+    // post(`${backendServerUrl}/products/add`, {
+    //     title: "Escort",
+    //     category: catServices });
+    // post(`${backendServerUrl}/products/add`, {
+    //     title: "Handyman for an hour",
+    //     category: catServices });
+    // post(`${backendServerUrl}/products/add`, {
+    //     title: "Handyman for an hour",
+    //     category: catServices });
 
     post(`${backendServerUrl}/products/add`, {
         title: "Gaming steering wheel",
