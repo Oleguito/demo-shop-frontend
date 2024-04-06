@@ -62,7 +62,6 @@ const AdminProfilePage = () => {
             <TabsTrigger value="users">Users</TabsTrigger>
             <TabsTrigger value="products">Products</TabsTrigger>
             <TabsTrigger value="product-bin">Your Product bin</TabsTrigger>
-            <TabsTrigger value="purchases">Your Purchases</TabsTrigger>
           </TabsList>
           <TabsContent value="categories">
             <div className="mx-[10%] flex justify-center flex-col gap-3">
