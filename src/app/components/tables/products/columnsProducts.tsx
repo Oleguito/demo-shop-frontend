@@ -17,6 +17,11 @@ import { IoTrashBinOutline } from "react-icons/io5";
 import { GrEdit } from "react-icons/gr";
 import Router from 'next/router'
 import {ProductResponse} from "@/types/product/product.types.ts";
+import { deleteProductById, updateProductById } from '@/api/backend/Products.ts';
+import {getAllCategories} from "@/api/backend/Categories.ts"
+import {CategoryQuery} from "@/types/category/Category.ts"
+import { frontend } from '@/app/routes/routes.ts';
+import Link from 'next/link';
 
 export const columnsProducts: ColumnDef<ProductResponse>[] = [
     {
@@ -58,7 +63,12 @@ export const columnsProducts: ColumnDef<ProductResponse>[] = [
         },
         cell: ({row}) => (
             <Button onClick={() => {
-                console.log("deleting category...");
+                console.log("deleting product...");
+                deleteProductById(row.original.id).then(
+                  data => {
+                      console.log(data);
+                  }
+                )
             }}>
                 <IoTrashBinOutline />
             </Button>
@@ -72,11 +82,9 @@ export const columnsProducts: ColumnDef<ProductResponse>[] = [
             )
         },
         cell: ({row}) => (
-            <Button onClick={() => {
-                console.log("editing category...");
-            }}>
+            <Link href={frontend.updateProduct(row.original.id)}>
                 <GrEdit />
-            </Button>
+            </Link>
         )
     }
 ]

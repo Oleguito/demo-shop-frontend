@@ -23,3 +23,19 @@ export function createAProduct(newProduct: ProductCommand) {
       return response.data;
   })
 }
+
+export function deleteProductById(id: number) {
+  return axios
+    .delete(backend.productsDeleteById(id))
+    .then((response) => {
+      return response.data;
+    })
+}
+
+export function updateProductById(id: number, data: ProductCommand) {
+  return axios
+    .put(backend.productsUpdateById(id), data)
+    .then((response) => {
+      return response.data;
+    })
+}

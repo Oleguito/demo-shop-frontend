@@ -10,3 +10,7 @@ export type CategoryResponse = {
     title: string;
 }
 
+export type CategoryQuery = {
+    id: number;
+    title: string;
+}

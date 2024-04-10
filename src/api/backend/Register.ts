@@ -10,7 +10,7 @@ const REGISTER_USER_URL
 export const registerUser = async (credentials: RegisterCredentials) => {
 
     const toInput = { ...credentials,
-        accountType: credentials.accountType.toString()
+        accountType: "USER"
     };
     console.log(toInput);
 
